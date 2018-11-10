@@ -47,6 +47,10 @@ public class PlayerInventory : MonoBehaviour {
 
 	public GameObject RetrieveItem(PotionType pt)
 	{
+		if (GameObject.Find("PotionsText") == null || GameObject.Find("ScoreText") == null)
+		{
+			return null;
+		}
 		if (invNumbers[pt] > 0)
 		{
 			--invNumbers[pt];
