@@ -12,6 +12,6 @@ public class StatusEffect : PotionEffect {
 
     public override void ApplyEffect(VehicleScript entity)
     {
-        
+        entity.AddEffect(this);
     }
 }

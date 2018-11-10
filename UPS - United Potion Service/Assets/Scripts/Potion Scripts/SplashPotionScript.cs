@@ -9,6 +9,8 @@ public class SplashPotionScript : ThrownPotion
     protected float timer;
     [SerializeField]
     protected string effectName;
+    [SerializeField]
+    protected float effectRadius;
 
     void Start()
     {
@@ -27,6 +29,9 @@ public class SplashPotionScript : ThrownPotion
 
     protected override void TriggerEffect()
     {
-        throw new System.NotImplementedException();
+        Explosion ex = Instantiate(Resources.Load<GameObject>("Explosion"), transform.position, Quaternion.identity).GetComponent<Explosion>();
+        ex.Radius = effectRadius;
+        ex.effect = new StatusEffect(timer, effectName);
+        Destroy(gameObject);
     }
 }

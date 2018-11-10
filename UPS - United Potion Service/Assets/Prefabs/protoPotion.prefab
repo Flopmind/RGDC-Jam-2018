@@ -22,8 +22,7 @@ GameObject:
   - component: {fileID: 212746818595610104}
   - component: {fileID: 50991891558147716}
   - component: {fileID: 114466351295875030}
-  - component: {fileID: 58658864927610112}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: protoPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524532432778774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1982622, y: -1.5539631, z: 0}
+  m_LocalPosition: {x: -7.9784446, y: -0.9228238, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,21 +62,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58658864927610112
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1524532432778774}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.3
 --- !u!114 &114466351295875030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,7 +74,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilEffect: 1
-  score: 0
   damage: 1
   damageRadius: 5
 --- !u!212 &212746818595610104
