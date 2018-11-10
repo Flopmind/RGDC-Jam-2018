@@ -362,11 +362,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
-        type: 2}
-      propertyPath: potionCounts.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4233336429800496, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
       propertyPath: m_LocalPosition.x
       value: -1.5027184
@@ -398,26 +393,6 @@ Prefab:
     - target: {fileID: 4233336429800496, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
-        type: 2}
-      propertyPath: basePotionCount
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
-        type: 2}
-      propertyPath: potionCounts.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
-        type: 2}
-      propertyPath: potionCounts.Array.data[1]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114902762760678262, guid: 6423460e6a659f44fb934a0764c4c3ed,
-        type: 2}
-      propertyPath: speedMag
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
