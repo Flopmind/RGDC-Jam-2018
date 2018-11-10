@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotionEffect : MonoBehaviour
+public abstract class PotionEffect
 {
 
     [SerializeField]
@@ -11,6 +11,8 @@ public class PotionEffect : MonoBehaviour
     protected string effectName;
 
     protected bool done = false;
+
+    public abstract void ApplyEffect(VehicleScript entity);
 
     public float Timer
     {

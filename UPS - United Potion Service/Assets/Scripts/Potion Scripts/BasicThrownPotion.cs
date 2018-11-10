@@ -23,15 +23,7 @@ public class BasicThrownPotion : ThrownPotion {
     {
         Explosion ex = Instantiate(Resources.Load<GameObject>("Explosion"), activationLocation, Quaternion.identity).GetComponent<Explosion>();
         ex.radius = damageRadius;
+        ex.effect = new DamageEffect(damage);
         Destroy(gameObject);
-    }
-
-    public override void AffectEnemy(EnemyScript enemy)
-    {
-        base.AffectEnemy(enemy);
-        if ((transform.position - enemy.transform.position).magnitude <= damageRadius)
-        {
-            enemy.GetComponent<HealthScript>().TakeDamage(damage);
-        }
     }
 }

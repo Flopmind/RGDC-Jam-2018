@@ -33,7 +33,7 @@ public class DrinkablePotion : Potion {
 
     protected override void TriggerEffect()
     {
-        if (myEffect)
+        if (myEffect != null)
         {
             player.GetComponent<VehicleScript>().AddEffect(myEffect);
         }

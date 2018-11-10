@@ -39,12 +39,4 @@ public abstract class ThrownPotion : Potion {
             TriggerEffect();
         }
     }
-
-    public virtual void AffectEnemy(EnemyScript enemy)
-    {
-        if (myEffect)
-        {
-            enemy.AddEffect(myEffect);
-        }
-    }
 }
