@@ -45,11 +45,11 @@ public class PlayerMovementScript : VehicleScript {
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.otherCollider.CompareTag("Enemy"))
         {
-            GetComponent<HealthScript>().TakeDamage(collision.GetComponent<EnemyScript>().Damage);
+            GetComponent<HealthScript>().TakeDamage(collision.otherCollider.GetComponent<EnemyScript>().Damage);
             Knockback(transform.position - collision.transform.position, knockbackMag);
         }
     }
