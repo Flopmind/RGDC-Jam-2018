@@ -8,6 +8,13 @@ public abstract class Potion : MonoBehaviour
 	protected float timeUntilEffect = 1;
     [SerializeField]
     protected PotionEffect myEffect = null;
+    [SerializeField]
+    protected int score;
+
+    public int Score
+    {
+        get { return score; }
+    }
 
 	protected IEnumerator WaitUntilEffect()
 	{

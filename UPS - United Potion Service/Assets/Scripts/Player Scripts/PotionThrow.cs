@@ -2,25 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotionThrow : MonoBehaviour 
+public class PotionThrow : MonoBehaviour
 {
-	[SerializeField]
+    [SerializeField]
     private GameObject potionPrefab;
-	[SerializeField]
+    [SerializeField]
+    private int basePotionCount = 0;
+    [SerializeField]
     private float potionThrowSpeed = 1;
     [SerializeField]
     private float throwInterval;
     [SerializeField]
     protected float maxThrowRange = 6;
-
     [SerializeField]
     private List<GameObject> myPotions;
+    [SerializeField]
+    private List<int> potionCounts;
+
     private GameObject[] enemies;
     private int index;
     private float throwTimer = 0;
 
     private void Start()
     {
+        if (myPotions.Count != potionCounts.Count || basePotionCount == 0)
+        {
+            throw new System.NullReferenceException("Populate potions and potion counts properly");
+        }
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         index = 0;
     }
