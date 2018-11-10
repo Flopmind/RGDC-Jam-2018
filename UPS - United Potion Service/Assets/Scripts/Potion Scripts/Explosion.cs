@@ -5,7 +5,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour 
 {
 	public float explosionLength = 1;
-    public float radius = 1;
+    private float radius = 1;
     public PotionEffect effect;
 
 	// Use this for initialization
@@ -37,5 +37,15 @@ public class Explosion : MonoBehaviour
     private void Kill()
     {
         Destroy(this.gameObject);
+    }
+
+    public float Radius
+    {
+        get { return radius; }
+        set
+        {
+            radius = Mathf.Abs(value);
+            transform.localScale = new Vector3(radius, radius, radius);
+        }
     }
 }
