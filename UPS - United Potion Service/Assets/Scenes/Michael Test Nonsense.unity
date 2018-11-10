@@ -414,6 +414,11 @@ Prefab:
       propertyPath: potionCounts.Array.data[1]
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114902762760678262, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: speedMag
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
   m_IsPrefabAsset: 0

@@ -74,8 +74,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilEffect: 1
+  score: 0
   damage: 1
-  damageRadius: 5
+  damageRadius: 3
 --- !u!212 &212746818595610104
 SpriteRenderer:
   m_ObjectHideFlags: 1

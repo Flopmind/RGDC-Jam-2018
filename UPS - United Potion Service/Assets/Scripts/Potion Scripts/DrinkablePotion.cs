@@ -16,19 +16,23 @@ public class DrinkablePotion : Potion {
 
     private void Start()
     {
-        PotionStart();
-        if (timer <= 0 || effectName == default(string))
-        {
-            throw new System.Exception("Set timer and/or name on this potions");
-        }
-        myEffect = new StatusEffect(timer, effectName);
+        
     }
 
     protected override void PotionStart()
     {
         base.PotionStart();
         player = GameObject.FindGameObjectWithTag("Player");
+    }
 
+    public void Initialize()
+    {
+        PotionStart();
+        if (timer <= 0 || effectName == default(string))
+        {
+            throw new System.Exception("Set timer and/or name on this potions");
+        }
+        myEffect = new StatusEffect(timer, effectName);
     }
 
     public void Drink()
