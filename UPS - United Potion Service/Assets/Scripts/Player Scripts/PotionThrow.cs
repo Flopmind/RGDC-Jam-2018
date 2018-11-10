@@ -14,25 +14,31 @@ public class PotionThrow : MonoBehaviour
     private GameObject[] enemies;
     [SerializeField]
     private int index;
-
+    PlayerInventory inv;
     private void Start()
     {
         print(myPotions.Count);
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         index = 0;
+        inv = GetComponent<PlayerInventory>();
     }
 
     // checks for input, instantiates potion and makes potion move
     void Update () 
 	{
+        GameObject potionToInstantiate = null;
 		if (Input.GetMouseButtonDown(0))
 		{
-			Vector3 vecToMouse = (MousePos.MousePosition - transform.position).normalized;
-			GameObject potionInstance = Instantiate(potionPrefab, transform.position + vecToMouse, Quaternion.identity);
-			potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
-            //potionInstance.GetComponent<ThrownPotion>().SetEnemies(enemies);
-            potionInstance.transform.up = vecToMouse;
-			potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
+            potionToInstantiate = inv.RetrieveItem(PlayerInventory.PotionType.Explosion);
+            if (potionToInstantiate != null)
+            {
+                Vector3 vecToMouse = (MousePos.MousePosition - transform.position).normalized; 
+                GameObject potionInstance = Instantiate(potionToInstantiate, transform.position + vecToMouse, Quaternion.identity);
+                potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
+                //potionInstance.GetComponent<ThrownPotion>().SetEnemies(enemies);
+                potionInstance.transform.up = vecToMouse;
+                potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
+            }
 		}
         else if (Input.GetMouseButtonDown(1) && myPotions.Count > 0)
         {
