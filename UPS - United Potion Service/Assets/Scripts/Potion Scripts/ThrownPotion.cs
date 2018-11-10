@@ -8,6 +8,8 @@ public abstract class ThrownPotion : Potion {
     protected GameObject[] enemies;
     protected bool locationSet = false;
 
+    protected float distance = 0;
+
     public Vector3 ActivationLocation
     {
         get
@@ -26,6 +28,11 @@ public abstract class ThrownPotion : Potion {
     //    enemies = myEnemies;
     //}
 
+    public void SetDistance(float dist)
+    {
+        distance = dist;
+    }
+    
     protected override void PotionStart()
     {
         base.PotionStart();
@@ -34,7 +41,7 @@ public abstract class ThrownPotion : Potion {
     
     protected virtual void PotionUpdate()
     {
-        if (locationSet && Vector3.SqrMagnitude(transform.position - activationLocation) < .01)
+        if (locationSet && (Vector3.SqrMagnitude(transform.position - activationLocation) < .01) || (transform.position - activationLocation).magnitude >= distance)
         {
             TriggerEffect();
         }

@@ -5,19 +5,20 @@ using UnityEngine;
 public class PotionThrow : MonoBehaviour 
 {
 	[SerializeField]
-	GameObject potionPrefab;
+    private GameObject potionPrefab;
 	[SerializeField]
-	float potionThrowSpeed = 1;
+    private float potionThrowSpeed = 1;
+    [SerializeField]
+    private float throwInterval;
 
     [SerializeField]
     private List<GameObject> myPotions;
     private GameObject[] enemies;
-    [SerializeField]
     private int index;
+    private float distanceTravel;
 
     private void Start()
     {
-        print(myPotions.Count);
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         index = 0;
     }
@@ -27,9 +28,12 @@ public class PotionThrow : MonoBehaviour
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
-			Vector3 vecToMouse = (MousePos.MousePosition - transform.position).normalized;
+			Vector3 vecToMouse = (MousePos.MousePosition - transform.position);
+            distanceTravel = vecToMouse.magnitude;
+            vecToMouse.Normalize();
 			GameObject potionInstance = Instantiate(potionPrefab, transform.position + vecToMouse, Quaternion.identity);
 			potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
+            potionInstance.GetComponent<ThrownPotion>().SetDistance(distanceTravel);
             //potionInstance.GetComponent<ThrownPotion>().SetEnemies(enemies);
             potionInstance.transform.up = vecToMouse;
 			potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;

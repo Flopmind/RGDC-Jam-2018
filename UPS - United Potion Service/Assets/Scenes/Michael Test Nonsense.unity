@@ -152,6 +152,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1297796548640978, guid: 69d0d699fd056f649b81fc2742374c3a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69d0d699fd056f649b81fc2742374c3a, type: 2}
   m_IsPrefabAsset: 0
@@ -274,12 +278,29 @@ Prefab:
         type: 2}
       propertyPath: myPotions.Array.data[0]
       value: 
-      objectReference: {fileID: 1731381276}
+      objectReference: {fileID: 1107480820136680, guid: f8165b30c54f7534585ed9ed260e11c2,
+        type: 2}
     - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
         type: 2}
       propertyPath: myPotions.Array.data[1]
       value: 
-      objectReference: {fileID: 2088853525}
+      objectReference: {fileID: 1297796548640978, guid: 69d0d699fd056f649b81fc2742374c3a,
+        type: 2}
+    - target: {fileID: 114902762760678262, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: speedPercent
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114902762760678262, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: speedMag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114902762760678262, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: slowMag
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
   m_IsPrefabAsset: 0
@@ -342,14 +363,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1107480820136680, guid: f8165b30c54f7534585ed9ed260e11c2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8165b30c54f7534585ed9ed260e11c2, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1731381276 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1107480820136680, guid: f8165b30c54f7534585ed9ed260e11c2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1731381275}
 --- !u!1 &1977741007
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,8 +447,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2088853525 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1297796548640978, guid: 69d0d699fd056f649b81fc2742374c3a,
-    type: 2}
-  m_PrefabInternal: {fileID: 24635753}

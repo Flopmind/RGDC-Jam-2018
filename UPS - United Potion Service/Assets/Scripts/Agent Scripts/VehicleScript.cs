@@ -9,9 +9,9 @@ public abstract class VehicleScript : MonoBehaviour {
     [SerializeField]
     protected float moveMag;
     [SerializeField]
-    protected float speedPercent;
+    protected float speedMag;
     [SerializeField]
-    protected float slowPercent;
+    protected float slowMag;
     [SerializeField]
     protected float steerMag;
     [SerializeField]
@@ -109,11 +109,12 @@ public abstract class VehicleScript : MonoBehaviour {
 
         if (ContainsEffect("Speed") && !ContainsEffect("Slow"))
         {
-            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * speedPercent;
+            print("A");
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * speedMag;
         }
         else if (ContainsEffect("Slow"))
         {
-            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * slowPercent;
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * slowMag;
         }
     }
 
