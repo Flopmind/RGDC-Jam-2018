@@ -18,7 +18,7 @@ public class GenerateLevel : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		Vector3 genStart = new Vector3(-wallSize.x * levelWidth, wallSize.y * levelHeight, 0);
+		Vector3 genStart = new Vector3(-wallSize.x * (levelWidth - 1) / 2, wallSize.y * (levelHeight - 1) / 2, 0);
 		Vector3 currentLoc = genStart;
 		for (int i = 0; i < levelHeight; ++i)
 		{
