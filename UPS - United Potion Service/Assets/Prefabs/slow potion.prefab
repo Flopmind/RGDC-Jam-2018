@@ -9,32 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1681422777744854}
+  m_RootGameObject: {fileID: 1107480820136680}
   m_IsPrefabAsset: 1
---- !u!1 &1681422777744854
+--- !u!1 &1107480820136680
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4048185005263566}
-  - component: {fileID: 212982433151568902}
-  - component: {fileID: 114267031199098278}
-  - component: {fileID: 114738962846844104}
+  - component: {fileID: 4298730300385484}
+  - component: {fileID: 212753526748407462}
+  - component: {fileID: 114896463485143504}
   m_Layer: 0
-  m_Name: speed potion
+  m_Name: slow potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4048185005263566
+--- !u!4 &4298730300385484
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1681422777744854}
+  m_GameObject: {fileID: 1107480820136680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.4242153, y: -0.9959916, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -42,39 +41,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114267031199098278
+--- !u!114 &114896463485143504
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1681422777744854}
+  m_GameObject: {fileID: 1107480820136680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fbe17d36d281394991b1be75f2c5a6e, type: 3}
+  m_Script: {fileID: 11500000, guid: e73dd352805bf034cbe2aa62d5e9eec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilEffect: 1
-  myEffect: {fileID: 114738962846844104}
-  uses: 1
---- !u!114 &114738962846844104
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1681422777744854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8fbd17b6ca225143ab1c4f4ae846028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectTimer: 5
-  effectName: Speed
---- !u!212 &212982433151568902
+  timer: 5
+  effectName: Slow
+--- !u!212 &212753526748407462
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1681422777744854}
+  m_GameObject: {fileID: 1107480820136680}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -104,12 +90,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4ca9b1b0e298ae4a90a161090010d21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4fecd6bb3d9874458327c97fb61b2ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
