@@ -129,10 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba7eaad92a07cb40a799a9131f49ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveMag: 5
+  speedPercent: 0
+  slowPercent: 0
   steerMag: 5
   pursuitMag: 5
   evadeMag: 5
-  moveMag: 5
 --- !u!50 &629427768
 Rigidbody2D:
   serializedVersion: 4
@@ -196,10 +198,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba7eaad92a07cb40a799a9131f49ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveMag: 5
+  speedPercent: 0
+  slowPercent: 0
   steerMag: 5
   pursuitMag: 5
   evadeMag: 5
-  moveMag: 5
 --- !u!212 &974105911
 SpriteRenderer:
   m_ObjectHideFlags: 0
