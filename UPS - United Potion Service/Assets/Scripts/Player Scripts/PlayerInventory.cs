@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour {
-	 public enum PotionType{Explosion};
-	// Use this for initialization
+
+    public bool onUI = true;
+	public enum PotionType{Explosion};
 	Dictionary<PotionType, int> invNumbers;
 	Dictionary<PotionType, GameObject> invItems;
 	DamageEffect dmg;
@@ -35,32 +36,37 @@ public class PlayerInventory : MonoBehaviour {
 		}
 	}
 	void Start()
-	{
-		invNumbers = new Dictionary<PotionType, int>();
-		invItems = new Dictionary<PotionType, GameObject>();
-		invNumbers.Add(PotionType.Explosion, 5);
-		invItems.Add(PotionType.Explosion, explosionPrefab);
-		GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
-		GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
-
+    {
+        invNumbers = new Dictionary<PotionType, int>();
+        invItems = new Dictionary<PotionType, GameObject>();
+        invNumbers.Add(PotionType.Explosion, 5);
+        invItems.Add(PotionType.Explosion, explosionPrefab);
+        if (onUI)
+        {
+            GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+            GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
+        }
 	}
 
 	public GameObject RetrieveItem(PotionType pt)
 	{
-		if (GameObject.Find("PotionsText") == null || GameObject.Find("ScoreText") == null)
-		{
-			return null;
-		}
-		if (invNumbers[pt] > 0)
-		{
-			--invNumbers[pt];
-			GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
-			GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
-			return invItems[pt];
-		}
-		else
-		{
-			return null;
-		}
-	}
+        if (onUI)
+        {
+            if (GameObject.Find("PotionsText") == null || GameObject.Find("ScoreText") == null)
+            {
+                return null;
+            }
+            if (invNumbers[pt] > 0)
+            {
+                --invNumbers[pt];
+                GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+                GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
+                return invItems[pt];
+            }
+            return null;
+        }
+
+        return invItems[pt];
+
+    }
 }

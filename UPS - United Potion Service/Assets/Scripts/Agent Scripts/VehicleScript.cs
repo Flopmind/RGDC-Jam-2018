@@ -92,20 +92,6 @@ public abstract class VehicleScript : MonoBehaviour {
 
     protected virtual void ApplyForces()
     {
-        //Vector3 netForce = CalculateForces();
-
-        //velocity += netForce;
-
-        ////Add in friction
-
-
-        ////Caps speed
-        //if (velocity.magnitude > speedLimit)
-        //{
-        //    velocity = velocity.normalized * speedLimit;
-        //}
-
-        //transform.position = transform.position + (velocity * Time.deltaTime);
         if (knock == Vector3.zero)
         {
             GetComponent<Rigidbody2D>().velocity = CalculateForces().normalized * moveMag;

@@ -54,6 +54,7 @@ public class PlayerMovementScript : VehicleScript {
 
     private void Knockback(Vector3 direct, float mag)
     {
+        print("knock");
         knock = direct.normalized * mag;
     }
 }
