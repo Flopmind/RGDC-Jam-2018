@@ -47,7 +47,7 @@ public abstract class ThrownPotion : Potion
             //Is close to desired location
             ((Vector3.SqrMagnitude(transform.position - activationLocation) < .01)
             //
-            || (transform.position - activationLocation).magnitude >= distance
+            //|| (transform.position - activationLocation).magnitude >= distance
             //Has gone too far
             || distanceTravelled >= maxDist))
         {
