@@ -18,21 +18,19 @@ public abstract class EnemyScript : VehicleScript {
         get { return attackDamage; }
     }
     
-	void Start ()
+	protected void Initialize()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
             throw new System.ArgumentNullException("Player not found in EnemyScript");
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 
     protected void TargetPlayer()
     {
+        if (player)
+        {
+            print((transform.position - player.transform.position).magnitude + ", " + aggroRange);
+        }
         if (player && (transform.position - player.transform.position).magnitude <= aggroRange)
         {
             target = player;

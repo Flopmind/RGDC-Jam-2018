@@ -7,7 +7,7 @@ public class TestEnemyScript : EnemyScript {
 	// Use this for initialization
 	void Start ()
     {
-		
+        Initialize();
 	}
 	
 	void Update ()
@@ -19,10 +19,8 @@ public class TestEnemyScript : EnemyScript {
     {
         if (target)
         {
-            //print("target");
             return Seek(target);
         }
-        //print("no target");
         return Vector3.zero;
     }
 }
