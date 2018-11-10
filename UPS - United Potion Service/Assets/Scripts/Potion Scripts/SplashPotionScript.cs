@@ -35,7 +35,7 @@ public class SplashPotionScript : ThrownPotion
 
     protected override void TriggerEffect()
     {
-        Explosion ex = Instantiate(Resources.Load<GameObject>("Explosion"), transform.position, Quaternion.identity).GetComponent<Explosion>();
+        Explosion ex = Instantiate(Resources.Load<GameObject>("Goosplosion"), transform.position, Quaternion.identity).GetComponent<Explosion>();
         ex.Radius = effectRadius;
         ex.effect = new StatusEffect(timer, effectName);
         Destroy(gameObject);
