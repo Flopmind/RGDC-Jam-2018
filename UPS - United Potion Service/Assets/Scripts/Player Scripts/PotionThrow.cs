@@ -11,7 +11,7 @@ public class PotionThrow : MonoBehaviour
     [SerializeField]
     private float throwInterval;
     [SerializeField]
-    protected float maxThrowRange;
+    protected float maxThrowRange = 6;
 
     [SerializeField]
     private List<GameObject> myPotions;

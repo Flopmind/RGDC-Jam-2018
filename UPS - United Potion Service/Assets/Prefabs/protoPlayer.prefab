@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114902762760678262}
   - component: {fileID: 50036365968468534}
   - component: {fileID: 70616198248184932}
+  - component: {fileID: 114756016622068076}
   m_Layer: 0
   m_Name: protoPlayer
   m_TagString: Player
@@ -74,7 +75,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.06}
@@ -112,10 +113,23 @@ MonoBehaviour:
   potionPrefab: {fileID: 1524532432778774, guid: f72dd0b0bc4abef408d8c5ff4093a0c3,
     type: 2}
   potionThrowSpeed: 7.5
-  throwInterval: 0
+  throwInterval: 0.5
+  maxThrowRange: 6
   myPotions:
   - {fileID: 1107480820136680, guid: f8165b30c54f7534585ed9ed260e11c2, type: 2}
   - {fileID: 1297796548640978, guid: 69d0d699fd056f649b81fc2742374c3a, type: 2}
+--- !u!114 &114756016622068076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1250258218426502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7699daa847aa6bd4a9929809576f8b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1000
 --- !u!114 &114902762760678262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,6 +147,7 @@ MonoBehaviour:
   steerMag: 0
   pursuitMag: 0
   evadeMag: 0
+  knockbackMag: 3000
 --- !u!212 &212925627957996376
 SpriteRenderer:
   m_ObjectHideFlags: 1

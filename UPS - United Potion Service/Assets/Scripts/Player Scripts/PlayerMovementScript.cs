@@ -7,6 +7,8 @@ public class PlayerMovementScript : VehicleScript {
     [SerializeField]
     private float knockbackMag = 1;
 
+    private Vector3 knock = Vector3.zero;
+
 	void Update ()
     {
         VehicleUpdate();
@@ -30,19 +32,30 @@ public class PlayerMovementScript : VehicleScript {
         return Vector3.zero;
     }
 
+    protected override void ApplyForces()
+    {
+        if (knock == Vector3.zero)
+        {
+            base.ApplyForces();
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(knock.x, knock.y));
+            knock = Vector3.zero;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
             GetComponent<HealthScript>().TakeDamage(collision.GetComponent<EnemyScript>().Damage);
             Knockback(transform.position - collision.transform.position, knockbackMag);
-            print(transform.position - collision.transform.position);
         }
     }
 
     private void Knockback(Vector3 direct, float mag)
     {
-        Vector2 direct2 = new Vector2(direct.x, direct.y);
-        GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity + (mag * direct2);
+        knock = direct.normalized * mag;
     }
 }

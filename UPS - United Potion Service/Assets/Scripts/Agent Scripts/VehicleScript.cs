@@ -89,7 +89,7 @@ public abstract class VehicleScript : MonoBehaviour {
     // Calculates and returns the netForce, which should be set to zero at the beginning, based on the other methods in the vehicle class and the needs of the specific vehicle.
     protected abstract Vector3 CalculateForces();
 
-    protected void ApplyForces()
+    protected virtual void ApplyForces()
     {
         //Vector3 netForce = CalculateForces();
 
