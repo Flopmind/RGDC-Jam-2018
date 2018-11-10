@@ -20,6 +20,10 @@ public class PlayerMovementScript : VehicleScript {
 
     protected override Vector3 CalculateForces()
     {
-        return (new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0).normalized) * moveMag;
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            return (new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0).normalized) * moveMag;
+        }
+        return Vector3.zero;
     }
 }

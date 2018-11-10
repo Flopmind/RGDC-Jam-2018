@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class VehicleScript : MonoBehaviour {
 
-    public float steerMag;
-    public float pursuitMag;
-    public float evadeMag;
+    [SerializeField]
+    protected float steerMag;
+    [SerializeField]
+    protected float pursuitMag;
+    [SerializeField]
+    protected float evadeMag;
     
     protected Vector3 velocity = Vector3.zero;
 
@@ -45,12 +49,21 @@ public abstract class VehicleScript : MonoBehaviour {
 
     protected void ApplyForces()
     {
-        Vector3 netForce = CalculateForces();
+        //Vector3 netForce = CalculateForces();
 
-        velocity += netForce;
+        //velocity += netForce;
 
-        //Add in friction
+        ////Add in friction
 
-        transform.position = transform.position + (velocity * Time.deltaTime);
+
+        ////Caps speed
+        //if (velocity.magnitude > speedLimit)
+        //{
+        //    velocity = velocity.normalized * speedLimit;
+        //}
+
+        //transform.position = transform.position + (velocity * Time.deltaTime);
+
+        GetComponent<Rigidbody2D>().velocity = CalculateForces();
     }
 }
