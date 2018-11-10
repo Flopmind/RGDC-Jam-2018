@@ -209,6 +209,21 @@ MonoBehaviour:
   potionPrefab: {fileID: 1524532432778774, guid: f72dd0b0bc4abef408d8c5ff4093a0c3,
     type: 2}
   potionThrowSpeed: 5
+--- !u!114 &295586873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 295586871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba7eaad92a07cb40a799a9131f49ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steerMag: 0
+  pursuitMag: 0
+  evadeMag: 0
+  moveMag: 1
 --- !u!1001 &396846616
 Prefab:
   m_ObjectHideFlags: 0
