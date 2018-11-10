@@ -7,11 +7,12 @@ public class StatusEffect : PotionEffect {
 	public StatusEffect(float timer, string name)
     {
         effectTimer = timer;
-        name = effectName;
+        effectName = name;
     }
 
     public override void ApplyEffect(VehicleScript entity)
     {
+        Debug.Log("Applied");
         entity.AddEffect(this);
     }
 }

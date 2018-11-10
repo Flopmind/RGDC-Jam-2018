@@ -32,6 +32,7 @@ public abstract class VehicleScript : MonoBehaviour {
 
     public void AddEffect(PotionEffect effect)
     {
+        print("add me");
         activeEffects.Add(effect);
     }
 
@@ -46,6 +47,7 @@ public abstract class VehicleScript : MonoBehaviour {
         {
             if (effect.Effect == effectName)
             {
+                print("found");
                 return true;
             }
         }

@@ -25,6 +25,12 @@ public class SplashPotionScript : ThrownPotion
     void Update()
     {
         PotionUpdate();
+        transform.localRotation *= Quaternion.AngleAxis(-1080 * Time.deltaTime, Vector3.forward);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        TriggerEffect();
     }
 
     protected override void TriggerEffect()

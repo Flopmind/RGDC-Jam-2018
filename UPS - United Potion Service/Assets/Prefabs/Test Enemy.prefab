@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114703987735007000}
   - component: {fileID: 114852169944438764}
   - component: {fileID: 58779008309375592}
+  - component: {fileID: 114928358469922858}
   m_Layer: 0
   m_Name: Test Enemy
   m_TagString: Enemy
@@ -110,6 +111,17 @@ MonoBehaviour:
   evadeMag: 0
   aggroRange: 6
   attackDamage: 3
+--- !u!114 &114928358469922858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1929178600274628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8452d08b3ae05344ead3f534bd05a381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212485840487000954
 SpriteRenderer:
   m_ObjectHideFlags: 1
