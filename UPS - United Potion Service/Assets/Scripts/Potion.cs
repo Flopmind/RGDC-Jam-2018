@@ -42,6 +42,7 @@ public class Potion : MonoBehaviour
 
 	void TriggerEffect()
 	{
+		Instantiate(Resources.Load<GameObject>("Explosion"), activationLocation, Quaternion.identity);
 		Destroy(gameObject);
 	}
 }
