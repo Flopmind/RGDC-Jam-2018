@@ -7,8 +7,6 @@ public class PlayerMovementScript : VehicleScript {
     [SerializeField]
     private float knockbackMag = 1;
 
-    private Vector3 knock = Vector3.zero;
-
 	void Update ()
     {
         VehicleUpdate();
@@ -30,19 +28,6 @@ public class PlayerMovementScript : VehicleScript {
             GetComponent<Animator>().SetBool("Running", false); // update Running value to reflect input
         }
         return Vector3.zero;
-    }
-
-    protected override void ApplyForces()
-    {
-        if (knock == Vector3.zero)
-        {
-            base.ApplyForces();
-        }
-        else
-        {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(knock.x, knock.y));
-            knock = Vector3.zero;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
