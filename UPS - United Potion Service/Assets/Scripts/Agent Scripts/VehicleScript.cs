@@ -20,6 +20,7 @@ public abstract class VehicleScript : MonoBehaviour {
     protected float evadeMag;
     
     protected Vector3 velocity = Vector3.zero;
+    protected Vector3 knock = Vector3.zero;
     protected List<PotionEffect> activeEffects = new List<PotionEffect>();
     protected List<GameObject> potions;
 
@@ -105,17 +106,26 @@ public abstract class VehicleScript : MonoBehaviour {
         //}
 
         //transform.position = transform.position + (velocity * Time.deltaTime);
-        GetComponent<Rigidbody2D>().velocity = CalculateForces().normalized * moveMag;
+        if (knock == Vector3.zero)
+        {
+            GetComponent<Rigidbody2D>().velocity = CalculateForces().normalized * moveMag;
 
-        if (ContainsEffect("Speed") && !ContainsEffect("Slow"))
-        {
-            print("A");
-            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * speedMag;
+            if (ContainsEffect("Speed") && !ContainsEffect("Slow"))
+            {
+                print("A");
+                GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * speedMag;
+            }
+            else if (ContainsEffect("Slow"))
+            {
+                GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * slowMag;
+            }
         }
-        else if (ContainsEffect("Slow"))
+        else
         {
-            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * slowMag;
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(knock.x, knock.y));
+            knock = Vector3.zero;
         }
+        
     }
 
     protected void EffectUpdates()

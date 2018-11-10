@@ -7,8 +7,6 @@ public class PlayerMovementScript : VehicleScript {
     [SerializeField]
     private float knockbackMag = 1;
 
-    private Vector3 knock = Vector3.zero;
-
 	void Update ()
     {
         VehicleUpdate();
@@ -32,6 +30,7 @@ public class PlayerMovementScript : VehicleScript {
         return Vector3.zero;
     }
 
+<<<<<<< HEAD
     protected override void ApplyForces()
     {
         if (knock == Vector3.zero)
@@ -46,6 +45,9 @@ public class PlayerMovementScript : VehicleScript {
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
+=======
+    private void OnTriggerEnter2D(Collider2D collision)
+>>>>>>> ad8ac161fecd4e52a803fd8a63ce26c6abf10634
     {
         if (collision.otherCollider.CompareTag("Enemy"))
         {

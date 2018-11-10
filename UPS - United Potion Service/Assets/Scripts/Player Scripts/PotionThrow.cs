@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotionThrow : MonoBehaviour 
+public class PotionThrow : MonoBehaviour
 {
-	[SerializeField]
+    [SerializeField]
     private GameObject potionPrefab;
-	[SerializeField]
+    [SerializeField]
     private float potionThrowSpeed = 1;
     [SerializeField]
     private float throwInterval;
     [SerializeField]
     protected float maxThrowRange = 6;
-
     [SerializeField]
     private List<GameObject> myPotions;
+
     private GameObject[] enemies;
     private int index;
     private float throwTimer = 0;
