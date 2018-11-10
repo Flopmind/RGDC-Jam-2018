@@ -31,6 +31,7 @@ public class GenerateLevel : MonoBehaviour
                 num = Random.Range(0, prefabs.Count);
             }
             while (num == lastGen); // if duplicate, roll again
+            lastGen = num;
 
             GameObject obj = GameObject.Instantiate(prefabs[num], new Vector3(0, currentY, 0), Quaternion.identity);
             obj.transform.SetParent(grid);
