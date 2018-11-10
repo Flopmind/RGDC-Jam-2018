@@ -17,7 +17,7 @@ public class CameraScript : MonoBehaviour {
         Vector3 playerPos = player.transform.position;
         if (Mathf.Abs(transform.position.y-player.transform.position.y)>threshold)
         {
-            Vector3.Lerp(transform.position, player.transform.position, cameraTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(0, playerPos.y, -10f), 1 / cameraTime * Time.deltaTime);
         }
 	}
 }
