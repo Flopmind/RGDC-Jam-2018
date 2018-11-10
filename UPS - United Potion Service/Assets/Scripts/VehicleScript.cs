@@ -10,13 +10,6 @@ public abstract class VehicleScript : MonoBehaviour {
     protected float pursuitMag;
     [SerializeField]
     protected float evadeMag;
-    [SerializeField]
-    protected float speedLimit;
-    //The coefficient of friction applied. Should always be in between 0 and 1.
-    [SerializeField]
-    protected float frictionCoef;
-    [SerializeField]
-    protected float frictionLowerLimit;
     
     protected Vector3 velocity = Vector3.zero;
 
@@ -55,31 +48,21 @@ public abstract class VehicleScript : MonoBehaviour {
 
     protected void ApplyForces()
     {
-        Vector3 netForce = CalculateForces();
+        //Vector3 netForce = CalculateForces();
 
-        velocity += netForce;
+        //velocity += netForce;
 
-        //Add in friction
+        ////Add in friction
 
-        //Caps speed
-        if (velocity.magnitude > speedLimit)
-        {
-            velocity = velocity.normalized * speedLimit;
-        }
 
-        transform.position = transform.position + (velocity * Time.deltaTime);
-    }
+        ////Caps speed
+        //if (velocity.magnitude > speedLimit)
+        //{
+        //    velocity = velocity.normalized * speedLimit;
+        //}
 
-    protected virtual Vector3 ApplyFriction(Vector3 myVelocity, Vector3 netForce)
-    {
-        if (netForce == Vector3.zero)
-        {
-            myVelocity = frictionCoef * myVelocity;
-        }
-        if (myVelocity.magnitude < frictionLowerLimit)
-        {
-            myVelocity = Vector3.zero;
-        }
-        return myVelocity;
+        //transform.position = transform.position + (velocity * Time.deltaTime);
+
+        GetComponent<Rigidbody2D>().velocity = CalculateForces();
     }
 }
