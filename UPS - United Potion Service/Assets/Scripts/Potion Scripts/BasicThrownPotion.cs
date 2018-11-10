@@ -17,7 +17,7 @@ public class BasicThrownPotion : ThrownPotion {
 	void Update ()
     {
         PotionUpdate();
-        transform.localRotation *= Quaternion.AngleAxis(-520 * Time.deltaTime, Vector3.forward);
+        transform.localRotation *= Quaternion.AngleAxis(-1080 * Time.deltaTime, Vector3.forward);
     }
 
     protected override void TriggerEffect()
