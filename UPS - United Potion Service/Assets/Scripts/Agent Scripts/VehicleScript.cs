@@ -21,6 +21,7 @@ public abstract class VehicleScript : MonoBehaviour {
     
     protected Vector3 velocity = Vector3.zero;
     protected List<PotionEffect> activeEffects = new List<PotionEffect>();
+    protected List<GameObject> potions;
 
     public Vector3 Velocity
     {
@@ -126,6 +127,6 @@ public abstract class VehicleScript : MonoBehaviour {
     public virtual void VehicleUpdate()
     {
         EffectUpdates();
-        CalculateForces();
+        ApplyForces();
     }
 }
