@@ -12,10 +12,12 @@ public class PotionThrow : MonoBehaviour
     [SerializeField]
     private List<GameObject> myPotions;
     private GameObject[] enemies;
+    [SerializeField]
     private int index;
 
     private void Start()
     {
+        print(myPotions.Count);
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         index = 0;
     }
@@ -45,6 +47,7 @@ public class PotionThrow : MonoBehaviour
             }
             else if (potionInstance.GetComponent<DrinkablePotion>())
             {
+                print("Called Drink");
                 potionInstance.GetComponent<DrinkablePotion>().Drink();
             }
         }
@@ -60,7 +63,7 @@ public class PotionThrow : MonoBehaviour
         {
             index = 0;
         }
-        else if (index <= 0)
+        else if (index < 0)
         {
             index = myPotions.Count - 1;
         }

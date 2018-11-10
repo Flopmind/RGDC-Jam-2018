@@ -24,6 +24,7 @@ public class Explosion : MonoBehaviour
 	{
         if (other.CompareTag("Enemy"))
         {
+            print("got to enemy");
             effect.ApplyEffect(other.GetComponent<VehicleScript>());
         }
 	}

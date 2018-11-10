@@ -48,6 +48,7 @@ public abstract class VehicleScript : MonoBehaviour {
                 return true;
             }
         }
+        //print(false);
         return false;
     }
 
