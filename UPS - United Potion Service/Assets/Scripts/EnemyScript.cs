@@ -7,11 +7,17 @@ public abstract class EnemyScript : VehicleScript {
 
     [SerializeField]
     protected float aggroRange;
+    [SerializeField]
+    protected int attackDamage;
 
     protected GameObject player;
     protected GameObject target = null;
 
-	// Use this for initialization
+    public int Damage
+    {
+        get { return attackDamage; }
+    }
+    
 	void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -31,5 +37,11 @@ public abstract class EnemyScript : VehicleScript {
         {
             target = player;
         }
+    }
+
+    protected override void ApplyForces()
+    {
+        TargetPlayer();
+        base.ApplyForces();
     }
 }

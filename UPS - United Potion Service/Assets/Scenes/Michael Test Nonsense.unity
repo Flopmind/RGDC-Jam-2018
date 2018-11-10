@@ -178,9 +178,11 @@ GameObject:
   - component: {fileID: 974105911}
   - component: {fileID: 974105910}
   - component: {fileID: 974105913}
+  - component: {fileID: 974105915}
+  - component: {fileID: 974105914}
   m_Layer: 0
-  m_Name: Circle
-  m_TagString: Untagged
+  m_Name: Circle Enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,7 +193,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 974105909}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ba7eaad92a07cb40a799a9131f49ee2, type: 3}
   m_Name: 
@@ -252,12 +254,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 974105909}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9537103, y: -0.40007424, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.34, y: 2.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &974105913
 Rigidbody2D:
@@ -279,6 +281,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &974105914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 974105909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ccff05f9d9608c4d8386871ca8f3d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steerMag: 3
+  pursuitMag: 0
+  evadeMag: 0
+  aggroRange: 2
+  attackDamage: 3
+--- !u!114 &974105915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 974105909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7699daa847aa6bd4a9929809576f8b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
 --- !u!1001 &1454725666
 Prefab:
   m_ObjectHideFlags: 0
@@ -316,7 +346,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4233336429800496, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250258218426502, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
