@@ -147,7 +147,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.6698113, g: 0.5510941, b: 0.36966002, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -278,7 +278,7 @@ MonoBehaviour:
   - {fileID: 1361190102530888, guid: 35e7ecfd8b0d3a84d9f19d8b65050d0e, type: 2}
   - {fileID: 1376570224066150, guid: aa7eff5f52389bb4896014c1c44bead2, type: 2}
   - {fileID: 1571809727016906, guid: 2a116e25d535c9d40887c64a31d43f97, type: 2}
-  length: 5
+  length: 10
   levelSize: 20
   grid: {fileID: 148354303}
 --- !u!4 &579870473
