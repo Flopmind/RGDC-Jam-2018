@@ -5,8 +5,11 @@ using UnityEngine;
 public abstract class ThrownPotion : Potion {
 
     protected Vector3 activationLocation;
+    protected Vector3 myOrigin;
     protected GameObject[] enemies;
     protected bool locationSet = false;
+    protected float distanceTravelled = 0;
+    protected float maxDist = 5;
     protected float distance = 0;
 
     public Vector3 ActivationLocation
@@ -22,18 +25,12 @@ public abstract class ThrownPotion : Potion {
         }
     }
 
-    //public void SetEnemies(GameObject[] myEnemies)
-    //{
-    //    enemies = myEnemies;
-    //}
-
-    public void SetDistances(float max, float dist)
+    public void SetDistances(Vector3 origin, float max, float dist)
     {
+        myOrigin = origin;
+        maxDist = max;
         distance = dist;
-        if (distance > max)
-        {
-            distance = dist;
-        }
+        print(this);
     }
     
     protected override void PotionStart()
@@ -44,7 +41,8 @@ public abstract class ThrownPotion : Potion {
     
     protected virtual void PotionUpdate()
     {
-        if (locationSet && (Vector3.SqrMagnitude(transform.position - activationLocation) < .01) || (transform.position - activationLocation).magnitude >= distance)
+        distanceTravelled = (transform.position - myOrigin).magnitude;
+        if (locationSet && ((Vector3.SqrMagnitude(transform.position - activationLocation) < .01) || (transform.position - activationLocation).magnitude >= distance || distanceTravelled >= maxDist))
         {
             TriggerEffect();
         }

@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4338933493997958}
   - component: {fileID: 212485840487000954}
-  - component: {fileID: 114415356088838126}
   - component: {fileID: 50072280672911656}
   - component: {fileID: 114703987735007000}
   - component: {fileID: 114852169944438764}
@@ -80,24 +79,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114415356088838126
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1929178600274628}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ba7eaad92a07cb40a799a9131f49ee2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveMag: 5
-  speedMag: 0
-  slowMag: 0
-  steerMag: 5
-  pursuitMag: 5
-  evadeMag: 5
-  knockbackMag: 1
 --- !u!114 &114703987735007000
 MonoBehaviour:
   m_ObjectHideFlags: 1

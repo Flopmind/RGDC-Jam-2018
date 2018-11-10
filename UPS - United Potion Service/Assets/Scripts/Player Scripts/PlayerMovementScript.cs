@@ -34,19 +34,15 @@ public class PlayerMovementScript : VehicleScript {
     {
         if (collision.CompareTag("Enemy"))
         {
-            GetComponent<HealthScript>().
-                TakeDamage
-                (
-                collision
-                .GetComponent<EnemyScript>()
-                .Damage);
+            GetComponent<HealthScript>().TakeDamage(collision.GetComponent<EnemyScript>().Damage);
             Knockback(transform.position - collision.transform.position, knockbackMag);
+            print(transform.position - collision.transform.position);
         }
     }
 
     private void Knockback(Vector3 direct, float mag)
     {
         Vector2 direct2 = new Vector2(direct.x, direct.y);
-        GetComponent<Rigidbody2D>().AddForce(mag * direct2);
+        GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity + (mag * direct2);
     }
 }
