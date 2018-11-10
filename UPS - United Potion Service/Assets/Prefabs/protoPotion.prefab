@@ -91,7 +91,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeUntilEffect: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   score: 1
+=======
+  score: 0
+>>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
 =======
   score: 0
 >>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79

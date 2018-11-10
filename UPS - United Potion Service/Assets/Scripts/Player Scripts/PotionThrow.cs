@@ -65,11 +65,15 @@ public class PotionThrow : MonoBehaviour
             if (throwTimer <= 0)
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 Vector3 vecToMouse = (MousePos.MousePosition - transform.position);
                 float distanceTravel = vecToMouse.magnitude;
                 vecToMouse.Normalize();
                 GameObject potionInstance = Instantiate(myPotions[index], transform.position + vecToMouse, Quaternion.identity);
                 if (potionInstance.GetComponent<ThrownPotion>())
+=======
+                if (Input.GetMouseButtonDown(0))
+>>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
 =======
                 if (Input.GetMouseButtonDown(0))
 >>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
@@ -81,7 +85,10 @@ public class PotionThrow : MonoBehaviour
                     potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
                     potionInstance.GetComponent<ThrownPotion>().SetDistances(transform.position, maxThrowRange, distanceTravel);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
                     //potionInstance.GetComponent<ThrownPotion>().SetEnemies(enemies);
 >>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
                     potionInstance.transform.up = vecToMouse;
@@ -91,10 +98,13 @@ public class PotionThrow : MonoBehaviour
                 else if (Input.GetMouseButtonDown(1) && myPotions.Count > 0)
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     print("Called Drink");
                     potionInstance.GetComponent<DrinkablePotion>().Drink();
                     Destroy(potionInstance);
 =======
+=======
+>>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
                     Vector3 vecToMouse = (MousePos.MousePosition - transform.position).normalized;
                     GameObject potionInstance = Instantiate(myPotions[index], transform.position + vecToMouse, Quaternion.identity);
                     if (potionInstance.GetComponent<ThrownPotion>())
@@ -110,6 +120,9 @@ public class PotionThrow : MonoBehaviour
                         potionInstance.GetComponent<DrinkablePotion>().Drink();
                     }
                     throwTimer = throwInterval;
+<<<<<<< HEAD
+>>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
+=======
 >>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
                 }
             }
