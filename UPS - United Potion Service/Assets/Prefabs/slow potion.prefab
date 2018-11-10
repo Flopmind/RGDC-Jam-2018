@@ -74,8 +74,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilEffect: 1
+  score: 15
   timer: 5
   effectName: Slow
+  effectRadius: 5
 --- !u!212 &212753526748407462
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilEffect: 1
+  score: 5
   uses: 1
   timer: 5
   effectName: Speed

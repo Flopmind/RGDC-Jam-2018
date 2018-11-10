@@ -31,7 +31,6 @@ public abstract class ThrownPotion : Potion
         myOrigin = origin;
         maxDist = max;
         distance = dist;
-        print(this);
     }
     
     protected override void PotionStart()
@@ -46,7 +45,7 @@ public abstract class ThrownPotion : Potion
         if (locationSet && 
             //Is close to desired location
             ((Vector3.SqrMagnitude(transform.position - activationLocation) < .01)
-            //
+            // current position, desired position, 
             || (transform.position - activationLocation).magnitude >= distance
             //Has gone too far
             || distanceTravelled >= maxDist))

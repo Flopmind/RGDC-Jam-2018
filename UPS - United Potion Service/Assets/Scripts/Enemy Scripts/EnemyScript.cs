@@ -12,6 +12,7 @@ public abstract class EnemyScript : VehicleScript {
 
     protected GameObject player;
     protected GameObject target = null;
+    protected List<PotionEffect> doneEffects;
 
     public int Damage
     {
@@ -27,14 +28,20 @@ public abstract class EnemyScript : VehicleScript {
 
     protected void EnemyUpdate()
     {
+        doneEffects = new List<PotionEffect>();
         TargetPlayer();
         VehicleUpdate();
-        foreach(PotionEffect effect in activeEffects)
+        foreach (PotionEffect effect in activeEffects)
         {
             if (effect.Done)
             {
-                activeEffects.Remove(effect);
+                doneEffects.Add(effect);
             }
+        }
+
+        for (int i = 0; i < doneEffects.Count; i++)
+        {
+            activeEffects.Remove(doneEffects[i]);
         }
     }
 
