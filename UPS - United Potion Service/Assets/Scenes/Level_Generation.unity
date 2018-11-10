@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 89345762}
   - component: {fileID: 89345761}
   - component: {fileID: 89345760}
+  - component: {fileID: 89345763}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -190,36 +191,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &290281791 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1250258218426502, guid: 6423460e6a659f44fb934a0764c4c3ed,
-    type: 2}
-  m_PrefabInternal: {fileID: 750771098}
---- !u!61 &290281798
-BoxCollider2D:
+--- !u!114 &89345763
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 290281791}
+  m_GameObject: {fileID: 89345759}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3beb414794c054594d6fc0919ef3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1098636896}
+  threshold: 0
+  cameraTime: 0.2
+--- !u!1 &148354301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148354303}
+  - component: {fileID: 148354302}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!156049354 &148354302
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 148354301}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
+--- !u!4 &148354303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 148354301}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &579870471
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,11 +272,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3629e1a7ae52a04591ed9813ebb42ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallPrefab: {fileID: 1291942319102400, guid: a72968d681e98264c9853f468dd7e696, type: 2}
-  levelWidth: 6
-  levelHeight: 10
-  wallProbabilityThreshold: 42
-  wallSize: {x: 1, y: 1, z: 1}
+  start: {fileID: 1221393171961208, guid: 30374eed495d36c41be14ef499ea68e0, type: 2}
+  end: {fileID: 1616509510051846, guid: fb8e2e49ad2f0454081a64c2e25b691f, type: 2}
+  prefabs:
+  - {fileID: 1361190102530888, guid: 35e7ecfd8b0d3a84d9f19d8b65050d0e, type: 2}
+  - {fileID: 1376570224066150, guid: aa7eff5f52389bb4896014c1c44bead2, type: 2}
+  - {fileID: 1571809727016906, guid: 2a116e25d535c9d40887c64a31d43f97, type: 2}
+  length: 5
+  levelSize: 20
+  grid: {fileID: 148354303}
 --- !u!4 &579870473
 Transform:
   m_ObjectHideFlags: 0
@@ -274,11 +303,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4233336429800496, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.3412223
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4233336429800496, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.49103057
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4233336429800496, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
       propertyPath: m_LocalPosition.z
@@ -304,16 +333,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 50504840607843926, guid: 6423460e6a659f44fb934a0764c4c3ed,
-        type: 2}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50504840607843926, guid: 6423460e6a659f44fb934a0764c4c3ed,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1098636896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1250258218426502, guid: 6423460e6a659f44fb934a0764c4c3ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 750771098}

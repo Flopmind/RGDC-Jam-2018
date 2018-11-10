@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba7eaad92a07cb40a799a9131f49ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveMag: 4
+  moveMag: 7
   speedMag: 2
   slowMag: 0.5
   steerMag: 0
