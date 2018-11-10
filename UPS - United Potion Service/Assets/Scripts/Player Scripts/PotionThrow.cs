@@ -7,8 +7,6 @@ public class PotionThrow : MonoBehaviour
     [SerializeField]
     private GameObject potionPrefab;
     [SerializeField]
-    private int basePotionCount = 0;
-    [SerializeField]
     private float potionThrowSpeed = 1;
     [SerializeField]
     private float throwInterval;
@@ -16,8 +14,6 @@ public class PotionThrow : MonoBehaviour
     protected float maxThrowRange = 6;
     [SerializeField]
     private List<GameObject> myPotions;
-    [SerializeField]
-    private List<int> potionCounts;
 
     private GameObject[] enemies;
     private int index;
@@ -26,10 +22,6 @@ public class PotionThrow : MonoBehaviour
 
     private void Start()
     {
-        if (myPotions.Count != potionCounts.Count || basePotionCount == 0)
-        {
-            throw new System.NullReferenceException("Populate potions and potion counts properly");
-        }
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         index = 0;
         inv = GetComponent<PlayerInventory>();
