@@ -2,8 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class VehicleScript : MonoBehaviour {
 
+
+    [SerializeField]
+    protected float moveMag;
+    [SerializeField]
+    protected float speedPercent;
+    [SerializeField]
+    protected float slowPercent;
     [SerializeField]
     protected float steerMag;
     [SerializeField]
@@ -12,11 +20,34 @@ public abstract class VehicleScript : MonoBehaviour {
     protected float evadeMag;
     
     protected Vector3 velocity = Vector3.zero;
+    protected List<PotionEffect> activeEffects = new List<PotionEffect>();
 
     public Vector3 Velocity
     {
         get { return velocity; }
         set { velocity = value; }
+    }
+
+    public void AddEffect(PotionEffect effect)
+    {
+        activeEffects.Add(effect);
+    }
+
+    public bool ContainsEffect(PotionEffect effect)
+    {
+        return ContainsEffect(effect.Effect);
+    }
+
+    public bool ContainsEffect(string effectName)
+    {
+        foreach (PotionEffect effect in activeEffects)
+        {
+            if (effect.Effect == effectName)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     protected Vector3 Seek(Vector3 targetPosition)
@@ -26,11 +57,21 @@ public abstract class VehicleScript : MonoBehaviour {
         return steerMag * (desiredVelocity - velocity).normalized;
     }
 
+    protected Vector3 Seek(GameObject gameObj)
+    {
+        return Seek(gameObj.transform.position);
+    }
+
     protected Vector3 Flee(Vector3 targetPosition)
     {
         Vector3 desiredVelocity = (transform.position - targetPosition).normalized;
 
         return steerMag * (desiredVelocity - velocity).normalized;
+    }
+
+    protected Vector3 Flee(GameObject gameObj)
+    {
+        return Flee(gameObj.transform.position);
     }
 
     protected Vector3 Pursue(VehicleScript targetVehicle)
@@ -62,7 +103,29 @@ public abstract class VehicleScript : MonoBehaviour {
         //}
 
         //transform.position = transform.position + (velocity * Time.deltaTime);
+        GetComponent<Rigidbody2D>().velocity = CalculateForces().normalized * moveMag;
 
-        GetComponent<Rigidbody2D>().velocity = CalculateForces();
+        if (ContainsEffect("Speed") && !ContainsEffect("Slow"))
+        {
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * speedPercent;
+        }
+        else if (ContainsEffect("Slow"))
+        {
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * slowPercent;
+        }
+    }
+
+    protected void EffectUpdates()
+    {
+        foreach (PotionEffect effect in activeEffects)
+        {
+            effect.EffectUpdate();
+        }
+    }
+
+    public virtual void VehicleUpdate()
+    {
+        EffectUpdates();
+        CalculateForces();
     }
 }
