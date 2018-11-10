@@ -12,13 +12,35 @@ public abstract class VehicleScript : MonoBehaviour {
     [SerializeField]
     protected float evadeMag;
     
-    [SerializeField]
     protected Vector3 velocity = Vector3.zero;
+    protected List<PotionEffect> activeEffects = new List<PotionEffect>();
 
     public Vector3 Velocity
     {
         get { return velocity; }
         set { velocity = value; }
+    }
+
+    public void AddEffect(PotionEffect effect)
+    {
+        activeEffects.Add(effect);
+    }
+
+    public bool ContainsEffect(PotionEffect effect)
+    {
+        return ContainsEffect(effect.Effect);
+    }
+
+    public bool ContainsEffect(string effectName)
+    {
+        foreach (PotionEffect effect in activeEffects)
+        {
+            if (effect.Effect == effectName)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     protected Vector3 Seek(Vector3 targetPosition)

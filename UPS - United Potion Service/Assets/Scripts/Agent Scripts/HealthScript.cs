@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthScript : MonoBehaviour {
 
     [SerializeField]
-    private int maxHealth;
+    private int maxHealth = 1;
     private int currentHealth;
 
     public int Health
@@ -28,8 +28,33 @@ public class HealthScript : MonoBehaviour {
         }
     }
 
+    private void Start()
+    {
+        Health = maxHealth;
+    }
+
+    private void Update()
+    {
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
-        Health = Health - damage;
+        print("Damage Taken");
+        if (damage > 0)
+        {
+            Health = Health - damage;
+        }
+    }
+
+    public void Heal(int healing)
+    {
+        if (healing > 0)
+        {
+            Health += healing;
+        }
     }
 }

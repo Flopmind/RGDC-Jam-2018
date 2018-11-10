@@ -132,7 +132,6 @@ MonoBehaviour:
   steerMag: 5
   pursuitMag: 5
   evadeMag: 5
-  velocity: {x: 0, y: 0, z: 0}
   moveMag: 5
 --- !u!50 &629427768
 Rigidbody2D:

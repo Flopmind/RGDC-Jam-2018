@@ -6,6 +6,7 @@ public abstract class ThrownPotion : Potion {
     
     protected Vector3 activationLocation;
     protected GameObject[] enemies;
+    protected bool locationSet = false;
 
     public Vector3 ActivationLocation
     {
@@ -16,6 +17,7 @@ public abstract class ThrownPotion : Potion {
         set
         {
             activationLocation = value;
+            locationSet = true;
         }
     }
 
@@ -32,9 +34,17 @@ public abstract class ThrownPotion : Potion {
     
     protected virtual void PotionUpdate()
     {
-        if (Vector3.SqrMagnitude(transform.position - activationLocation) < .01)
+        if (locationSet && Vector3.SqrMagnitude(transform.position - activationLocation) < .01)
         {
             TriggerEffect();
+        }
+    }
+
+    protected virtual void AffectEnemy(EnemyScript enemy)
+    {
+        if (myEffect)
+        {
+            enemy.AddEffect(myEffect);
         }
     }
 }

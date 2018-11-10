@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4618229435365876}
   - component: {fileID: 212746818595610104}
   - component: {fileID: 50991891558147716}
-  - component: {fileID: 114004736848572702}
+  - component: {fileID: 114466351295875030}
   m_Layer: 0
   m_Name: protoPotion
   m_TagString: Untagged
@@ -62,7 +62,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &114004736848572702
+--- !u!114 &114466351295875030
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,10 +70,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1524532432778774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382eda004ce32ce41b2d4589f6f02255, type: 3}
+  m_Script: {fileID: 11500000, guid: aa64c58b0eb5c10469427479a1f44f65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilEffect: 1
+  damage: 0
+  damageRadius: 0
 --- !u!212 &212746818595610104
 SpriteRenderer:
   m_ObjectHideFlags: 1

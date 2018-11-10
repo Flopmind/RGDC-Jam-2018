@@ -16,7 +16,7 @@ public abstract class Potion : MonoBehaviour
 
     protected virtual void PotionStart()
     {
-        print("If an error is after this, fix potion start");
+        //print("If an error is after this, fix potion start");
         if (GetComponent<PotionEffect>())
         {
             myEffect = GetComponent<PotionEffect>();

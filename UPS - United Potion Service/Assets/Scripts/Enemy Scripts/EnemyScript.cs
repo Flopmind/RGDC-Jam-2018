@@ -12,7 +12,6 @@ public abstract class EnemyScript : VehicleScript {
 
     protected GameObject player;
     protected GameObject target = null;
-    protected List<PotionEffect> activeEffects = new List<PotionEffect>();
 
     public int Damage
     {
@@ -41,10 +40,6 @@ public abstract class EnemyScript : VehicleScript {
 
     protected void TargetPlayer()
     {
-        if (player)
-        {
-            print((transform.position - player.transform.position).magnitude + ", " + aggroRange);
-        }
         if (player && (transform.position - player.transform.position).magnitude <= aggroRange)
         {
             target = player;

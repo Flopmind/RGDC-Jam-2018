@@ -78,7 +78,6 @@ MonoBehaviour:
   steerMag: 5
   pursuitMag: 5
   evadeMag: 5
-  velocity: {x: 0, y: 0, z: 0}
   moveMag: 5
 --- !u!114 &114703987735007000
 MonoBehaviour:
@@ -91,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7699daa847aa6bd4a9929809576f8b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 1
 --- !u!114 &114852169944438764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,7 +105,6 @@ MonoBehaviour:
   steerMag: 3
   pursuitMag: 0
   evadeMag: 0
-  velocity: {x: 0, y: 0, z: 0}
   aggroRange: 2
   attackDamage: 3
 --- !u!212 &212485840487000954
