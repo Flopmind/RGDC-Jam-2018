@@ -20,6 +20,10 @@ public class BasicThrownPotion : ThrownPotion {
         transform.localRotation *= Quaternion.AngleAxis(-1080 * Time.deltaTime, Vector3.forward);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        TriggerEffect();
+    }
     protected override void TriggerEffect()
     {
         Explosion ex = Instantiate(Resources.Load<GameObject>("Explosion"), transform.position, Quaternion.identity).GetComponent<Explosion>();
