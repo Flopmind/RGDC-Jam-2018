@@ -21,10 +21,10 @@ public abstract class ThrownPotion : Potion {
         }
     }
 
-    public void SetEnemies(GameObject[] myEnemies)
-    {
-        enemies = myEnemies;
-    }
+    //public void SetEnemies(GameObject[] myEnemies)
+    //{
+    //    enemies = myEnemies;
+    //}
 
     protected override void PotionStart()
     {

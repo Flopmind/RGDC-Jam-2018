@@ -9,11 +9,17 @@ public class PotionThrow : MonoBehaviour
 	[SerializeField]
 	float potionThrowSpeed = 1;
 
+    [SerializeField]
+    private List<GameObject> myPotions;
     private GameObject[] enemies;
+    [SerializeField]
+    private int index;
 
     private void Start()
     {
+        print(myPotions.Count);
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        index = 0;
     }
 
     // checks for input, instantiates potion and makes potion move
@@ -24,9 +30,42 @@ public class PotionThrow : MonoBehaviour
 			Vector3 vecToMouse = (MousePos.MousePosition - transform.position).normalized;
 			GameObject potionInstance = Instantiate(potionPrefab, transform.position + vecToMouse, Quaternion.identity);
 			potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
-            potionInstance.GetComponent<ThrownPotion>().SetEnemies(enemies);
+            //potionInstance.GetComponent<ThrownPotion>().SetEnemies(enemies);
             potionInstance.transform.up = vecToMouse;
 			potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
 		}
-	}
+        else if (Input.GetMouseButtonDown(1) && myPotions.Count > 0)
+        {
+            Vector3 vecToMouse = (MousePos.MousePosition - transform.position).normalized;
+            GameObject potionInstance = Instantiate(myPotions[index], transform.position + vecToMouse, Quaternion.identity);
+            if (potionInstance.GetComponent<ThrownPotion>())
+            {
+                potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
+                //potionInstance.GetComponent<ThrownPotion>().SetEnemies(enemies);
+                potionInstance.transform.up = vecToMouse;
+                potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
+            }
+            else if (potionInstance.GetComponent<DrinkablePotion>())
+            {
+                print("Called Drink");
+                potionInstance.GetComponent<DrinkablePotion>().Drink();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            --index;
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ++index;
+        }
+        if (index >= myPotions.Count)
+        {
+            index = 0;
+        }
+        else if (index < 0)
+        {
+            index = myPotions.Count - 1;
+        }
+    }
 }

@@ -17,12 +17,13 @@ public class BasicThrownPotion : ThrownPotion {
 	void Update ()
     {
         PotionUpdate();
+        transform.localRotation *= Quaternion.AngleAxis(-1080 * Time.deltaTime, Vector3.forward);
     }
 
     protected override void TriggerEffect()
     {
         Explosion ex = Instantiate(Resources.Load<GameObject>("Explosion"), activationLocation, Quaternion.identity).GetComponent<Explosion>();
-        ex.radius = damageRadius;
+        ex.Radius = damageRadius;
         ex.effect = new DamageEffect(damage);
         Destroy(gameObject);
     }
