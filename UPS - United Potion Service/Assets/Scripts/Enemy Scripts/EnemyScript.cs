@@ -30,6 +30,13 @@ public abstract class EnemyScript : VehicleScript {
     {
         TargetPlayer();
         ApplyForces();
+        foreach(PotionEffect effect in activeEffects)
+        {
+            if (effect.Done)
+            {
+                activeEffects.Remove(effect);
+            }
+        }
     }
 
     protected void TargetPlayer()
