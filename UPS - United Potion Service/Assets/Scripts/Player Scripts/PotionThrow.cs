@@ -64,7 +64,7 @@ public class PotionThrow : MonoBehaviour
                 }
                 else if (potionInstance.GetComponent<DrinkablePotion>())
                 {
-                    print("Called Drink");
+                    potionInstance.GetComponent<DrinkablePotion>().Initialize();
                     potionInstance.GetComponent<DrinkablePotion>().Drink();
                     Destroy(potionInstance);
                 }

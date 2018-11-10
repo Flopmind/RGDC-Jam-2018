@@ -32,7 +32,6 @@ public abstract class VehicleScript : MonoBehaviour {
 
     public void AddEffect(PotionEffect effect)
     {
-        print("add me");
         activeEffects.Add(effect);
     }
 
@@ -47,7 +46,6 @@ public abstract class VehicleScript : MonoBehaviour {
         {
             if (effect.Effect == effectName)
             {
-                print("found");
                 return true;
             }
         }
@@ -114,12 +112,10 @@ public abstract class VehicleScript : MonoBehaviour {
 
             if (ContainsEffect("Speed") && !ContainsEffect("Slow"))
             {
-                print("Fast");
                 GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * speedMag;
             }
             else if (ContainsEffect("Slow"))
             {
-                print("Slow");
                 GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * slowMag;
             }
         }
