@@ -20,6 +20,7 @@ public class GenerateLevel : MonoBehaviour
 	{
 		Vector3 genStart = new Vector3(-wallSize.x * (levelWidth - 1) / 2, wallSize.y * (levelHeight - 1) / 2, 0);
 		Vector3 currentLoc = genStart;
+		// randomly generate walls within level
 		for (int i = 0; i < levelHeight; ++i)
 		{
 			for (int j = 0; j < levelWidth; ++j)
@@ -35,11 +36,16 @@ public class GenerateLevel : MonoBehaviour
 			currentLoc.x = genStart.x;
 			currentLoc.y -= wallSize.y;
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
+		currentLoc = genStart + new Vector3(0, wallSize.y);
+		// generate bounding walls for level
+		for (int i = 0; i < 2; ++i)
+		{
+			for (int j = 0; j < levelWidth; ++j)
+			{
+				Instantiate(wallPrefab, currentLoc, Quaternion.identity);
+				currentLoc.x += wallSize.x;
+			}
+			currentLoc = genStart - new Vector3(0, wallSize.y * levelHeight);
+		}
 	}
 }

@@ -112,11 +112,12 @@ public abstract class VehicleScript : MonoBehaviour {
 
             if (ContainsEffect("Speed") && !ContainsEffect("Slow"))
             {
-                print("A");
+                print("Fast");
                 GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * speedMag;
             }
             else if (ContainsEffect("Slow"))
             {
+                print("Slow");
                 GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * slowMag;
             }
         }

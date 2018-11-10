@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ThrownPotion : Potion {
+public abstract class ThrownPotion : Potion 
+{
 
     protected Vector3 activationLocation;
     protected Vector3 myOrigin;
@@ -30,7 +31,6 @@ public abstract class ThrownPotion : Potion {
         myOrigin = origin;
         maxDist = max;
         distance = dist;
-        print(this);
     }
     
     protected override void PotionStart()
@@ -45,8 +45,13 @@ public abstract class ThrownPotion : Potion {
         if (locationSet && 
             //Is close to desired location
             ((Vector3.SqrMagnitude(transform.position - activationLocation) < .01)
-            //
+<<<<<<< HEAD
+            // current position, desired position, 
             || (transform.position - activationLocation).magnitude >= distance
+=======
+            //
+            //|| (transform.position - activationLocation).magnitude >= distance
+>>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
             //Has gone too far
             || distanceTravelled >= maxDist))
         {

@@ -9,7 +9,7 @@ public class PotionThrow : MonoBehaviour
     [SerializeField]
     private float potionThrowSpeed = 1;
     [SerializeField]
-    private float throwInterval;
+    private float throwInterval = 2;
     [SerializeField]
     protected float maxThrowRange = 6;
     [SerializeField]
@@ -17,20 +17,37 @@ public class PotionThrow : MonoBehaviour
 
     private GameObject[] enemies;
     private int index;
+    PlayerInventory inv;
     private float throwTimer = 0;
 
     private void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         index = 0;
+        inv = GetComponent<PlayerInventory>();
     }
 
     // checks for input, instantiates potion and makes potion move
     void Update () 
 	{
-        if (throwTimer <= 0)
+        GameObject potionToInstantiate = null;
+		// if (Input.GetMouseButtonDown(0))
+		// {
+        //     potionToInstantiate = inv.RetrieveItem(PlayerInventory.PotionType.Explosion);
+        //     if (potionToInstantiate != null)
+        //     {
+        //         Vector3 vecToMouse = (MousePos.MousePosition - transform.position).normalized; 
+        //         GameObject potionInstance = Instantiate(potionToInstantiate, transform.position + vecToMouse, Quaternion.identity);
+        //         potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
+        //         //potionInstance.GetComponent<ThrownPotion>().SetEnemies(enemies);
+        //         potionInstance.transform.up = vecToMouse;
+        //         potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
+        //     }
+		// }
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
+            potionToInstantiate = inv.RetrieveItem(PlayerInventory.PotionType.Explosion);
+            if (potionToInstantiate != null)
             {
                 Vector3 vecToMouse = (MousePos.MousePosition - transform.position);
                 float distanceTravel = vecToMouse.magnitude;
@@ -38,49 +55,84 @@ public class PotionThrow : MonoBehaviour
                 GameObject potionInstance = Instantiate(potionPrefab, transform.position + vecToMouse, Quaternion.identity);
                 potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
                 potionInstance.GetComponent<ThrownPotion>().SetDistances(transform.position, maxThrowRange, distanceTravel);
-                //potionInstance.GetComponent<ThrownPotion>().SetEnemies(enemies);
                 potionInstance.transform.up = vecToMouse;
                 potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
                 throwTimer = throwInterval;
             }
-            else if (Input.GetMouseButtonDown(1) && myPotions.Count > 0)
+        }
+        else if (Input.GetMouseButtonDown(1) && myPotions.Count > 0)
+        {
+            if (throwTimer <= 0)
             {
-                Vector3 vecToMouse = (MousePos.MousePosition - transform.position).normalized;
+<<<<<<< HEAD
+                Vector3 vecToMouse = (MousePos.MousePosition - transform.position);
+                float distanceTravel = vecToMouse.magnitude;
+                vecToMouse.Normalize();
                 GameObject potionInstance = Instantiate(myPotions[index], transform.position + vecToMouse, Quaternion.identity);
                 if (potionInstance.GetComponent<ThrownPotion>())
+=======
+                if (Input.GetMouseButtonDown(0))
+>>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
                 {
+                    Vector3 vecToMouse = (MousePos.MousePosition - transform.position);
+                    float distanceTravel = vecToMouse.magnitude;
+                    vecToMouse.Normalize();
+                    GameObject potionInstance = Instantiate(potionPrefab, transform.position + vecToMouse, Quaternion.identity);
                     potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
+                    potionInstance.GetComponent<ThrownPotion>().SetDistances(transform.position, maxThrowRange, distanceTravel);
+<<<<<<< HEAD
+=======
                     //potionInstance.GetComponent<ThrownPotion>().SetEnemies(enemies);
+>>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
                     potionInstance.transform.up = vecToMouse;
                     potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
+                    throwTimer = throwInterval;
                 }
-                else if (potionInstance.GetComponent<DrinkablePotion>())
+                else if (Input.GetMouseButtonDown(1) && myPotions.Count > 0)
                 {
+<<<<<<< HEAD
                     print("Called Drink");
                     potionInstance.GetComponent<DrinkablePotion>().Drink();
+                    Destroy(potionInstance);
+=======
+                    Vector3 vecToMouse = (MousePos.MousePosition - transform.position).normalized;
+                    GameObject potionInstance = Instantiate(myPotions[index], transform.position + vecToMouse, Quaternion.identity);
+                    if (potionInstance.GetComponent<ThrownPotion>())
+                    {
+                        potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
+                        //potionInstance.GetComponent<ThrownPotion>().SetEnemies(enemies);
+                        potionInstance.transform.up = vecToMouse;
+                        potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
+                    }
+                    else if (potionInstance.GetComponent<DrinkablePotion>())
+                    {
+                        print("Called Drink");
+                        potionInstance.GetComponent<DrinkablePotion>().Drink();
+                    }
+                    throwTimer = throwInterval;
+>>>>>>> 2b77533a29b44a5fdca4ab299483cf078a8afe79
                 }
-                throwTimer = throwInterval;
             }
         }
         else
         {
             throwTimer -= Time.deltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            --index;
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ++index;
-        }
-        if (index >= myPotions.Count)
-        {
-            index = 0;
-        }
-        else if (index < 0)
-        {
-            index = myPotions.Count - 1;
-        }
+        // if (Input.GetKeyDown(KeyCode.Q))
+        // {
+        //     --index;
+        // }
+        // if (Input.GetKeyDown(KeyCode.E))
+        // {
+        //     ++index;
+        // }
+        // if (index >= myPotions.Count)
+        // {
+        //     index = 0;
+        // }
+        // else if (index < 0)
+        // {
+        //     index = myPotions.Count - 1;
+        // }
     }
 }
