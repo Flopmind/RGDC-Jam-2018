@@ -20,10 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4233336429800496}
   - component: {fileID: 212925627957996376}
-  - component: {fileID: 50504840607843926}
   - component: {fileID: 95970964726492334}
   - component: {fileID: 114537503616551246}
   - component: {fileID: 114902762760678262}
+  - component: {fileID: 50036365968468534}
+  - component: {fileID: 70616198248184932}
   m_Layer: 0
   m_Name: protoPlayer
   m_TagString: Player
@@ -38,13 +39,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1250258218426502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.5027184, y: -2.6291971, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50504840607843926
+--- !u!50 &50036365968468534
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -64,6 +65,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &70616198248184932
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1250258218426502}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.06}
+  m_Size: {x: 1.05, y: 1.67}
+  m_Direction: 0
 --- !u!95 &95970964726492334
 Animator:
   serializedVersion: 3
@@ -96,6 +112,10 @@ MonoBehaviour:
   potionPrefab: {fileID: 1524532432778774, guid: f72dd0b0bc4abef408d8c5ff4093a0c3,
     type: 2}
   potionThrowSpeed: 7.5
+  throwInterval: 0
+  myPotions:
+  - {fileID: 1107480820136680, guid: f8165b30c54f7534585ed9ed260e11c2, type: 2}
+  - {fileID: 1297796548640978, guid: 69d0d699fd056f649b81fc2742374c3a, type: 2}
 --- !u!114 &114902762760678262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveMag: 4
-  speedPercent: 0
-  slowPercent: 0
+  speedMag: 2
+  slowMag: 0.5
   steerMag: 0
   pursuitMag: 0
   evadeMag: 0

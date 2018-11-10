@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class ThrownPotion : Potion {
-    
+
     protected Vector3 activationLocation;
     protected GameObject[] enemies;
     protected bool locationSet = false;
-
     protected float distance = 0;
 
     public Vector3 ActivationLocation
@@ -28,9 +27,13 @@ public abstract class ThrownPotion : Potion {
     //    enemies = myEnemies;
     //}
 
-    public void SetDistance(float dist)
+    public void SetDistances(float max, float dist)
     {
         distance = dist;
+        if (distance > max)
+        {
+            distance = dist;
+        }
     }
     
     protected override void PotionStart()
