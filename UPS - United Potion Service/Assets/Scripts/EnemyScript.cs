@@ -12,6 +12,7 @@ public abstract class EnemyScript : VehicleScript {
 
     protected GameObject player;
     protected GameObject target = null;
+    protected List<PotionEffect> activeEffects = new List<PotionEffect>();
 
     public int Damage
     {
@@ -25,6 +26,12 @@ public abstract class EnemyScript : VehicleScript {
             throw new System.ArgumentNullException("Player not found in EnemyScript");
 	}
 
+    protected void EnemyUpdate()
+    {
+        TargetPlayer();
+        ApplyForces();
+    }
+
     protected void TargetPlayer()
     {
         if (player)
@@ -35,11 +42,5 @@ public abstract class EnemyScript : VehicleScript {
         {
             target = player;
         }
-    }
-
-    protected override void ApplyForces()
-    {
-        TargetPlayer();
-        base.ApplyForces();
     }
 }

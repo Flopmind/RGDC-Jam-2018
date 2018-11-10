@@ -12,7 +12,7 @@ public class TestEnemyScript : EnemyScript {
 	
 	void Update ()
     {
-        ApplyForces();
+        EnemyUpdate();
 	}
 
     protected override Vector3 CalculateForces()
