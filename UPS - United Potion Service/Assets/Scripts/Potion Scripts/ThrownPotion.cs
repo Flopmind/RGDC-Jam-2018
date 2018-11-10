@@ -40,7 +40,7 @@ public abstract class ThrownPotion : Potion {
         }
     }
 
-    protected virtual void AffectEnemy(EnemyScript enemy)
+    public virtual void AffectEnemy(EnemyScript enemy)
     {
         if (myEffect)
         {

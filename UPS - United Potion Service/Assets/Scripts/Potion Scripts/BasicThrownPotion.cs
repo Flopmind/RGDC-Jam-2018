@@ -22,14 +22,10 @@ public class BasicThrownPotion : ThrownPotion {
     protected override void TriggerEffect()
     {
         Instantiate(Resources.Load<GameObject>("Explosion"), activationLocation, Quaternion.identity);
-        foreach (GameObject enemy in enemies)
-        {
-            AffectEnemy(enemy.GetComponent<EnemyScript>());
-        }
         Destroy(gameObject);
     }
 
-    protected override void AffectEnemy(EnemyScript enemy)
+    public override void AffectEnemy(EnemyScript enemy)
     {
         base.AffectEnemy(enemy);
         if ((transform.position - enemy.transform.position).magnitude <= damageRadius)
