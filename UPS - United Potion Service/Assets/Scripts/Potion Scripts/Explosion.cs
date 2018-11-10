@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour 
 {
-	float explosionLength = 1;
+	public float explosionLength = 1;
+    public float radius = 1;
+    public PotionEffect effect;
+
 	// Use this for initialization
 	void Start () 
 	{
-		StartCoroutine(EndExplosion());
+		//StartCoroutine(EndExplosion());
 	}
 	
 	// Update is called once per frame
@@ -19,7 +22,10 @@ public class Explosion : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		
+        if (other.CompareTag("Enemy"))
+        {
+
+        }
 	}
 
 	IEnumerator EndExplosion()
@@ -27,4 +33,9 @@ public class Explosion : MonoBehaviour
 		yield return new WaitForSeconds(explosionLength);
 		Destroy(this.gameObject);
 	}
+
+    private void Kill()
+    {
+        Destroy(this.gameObject);
+    }
 }

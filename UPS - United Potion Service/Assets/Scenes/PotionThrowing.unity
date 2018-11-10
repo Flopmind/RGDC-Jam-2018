@@ -224,6 +224,7 @@ MonoBehaviour:
   pursuitMag: 0
   evadeMag: 0
   moveMag: 1
+  speedMoveMag: 0
 --- !u!50 &295586876
 Rigidbody2D:
   serializedVersion: 4

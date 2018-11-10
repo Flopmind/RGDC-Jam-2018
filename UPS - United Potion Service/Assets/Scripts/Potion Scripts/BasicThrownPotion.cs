@@ -21,7 +21,8 @@ public class BasicThrownPotion : ThrownPotion {
 
     protected override void TriggerEffect()
     {
-        Instantiate(Resources.Load<GameObject>("Explosion"), activationLocation, Quaternion.identity);
+        Explosion ex = Instantiate(Resources.Load<GameObject>("Explosion"), activationLocation, Quaternion.identity).GetComponent<Explosion>();
+        ex.radius = damageRadius;
         Destroy(gameObject);
     }
 

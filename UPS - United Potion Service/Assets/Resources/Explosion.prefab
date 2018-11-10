@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212729409328863554}
   - component: {fileID: 58840164775766596}
   - component: {fileID: 114144822731162912}
+  - component: {fileID: 95744350326923086}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354669894864422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.24, y: -1.9106569, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,6 +58,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!95 &95744350326923086
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1354669894864422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec09bb0b7c587654d89817c1297ab60a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114144822731162912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,6 +87,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d97f2f6921c2e4cb7e1a0305c0f457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionLength: 1
+  radius: 1
+  effect: {fileID: 0}
 --- !u!212 &212729409328863554
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -83,7 +105,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2ff971d3901fac443bd02c109e16a839, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,8 +125,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b1b35f78be863ad41b10261155a78383, type: 3}
-  m_Color: {r: 1, g: 0.6011123, b: 0, a: 0.48235294}
+  m_Sprite: {fileID: 21300012, guid: 5c743373186d8e84d9e1ff820c7d89f5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
