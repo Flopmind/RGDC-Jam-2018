@@ -44,7 +44,6 @@ public class HealthScript : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
-        print("Damage Taken");
         if (damage > 0)
         {
             Health = Health - damage;

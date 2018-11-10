@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovementScript : VehicleScript {
-	
+
+    [SerializeField]
+    private float knockbackMag = 1;
+
 	void Update ()
     {
         VehicleUpdate();
@@ -25,5 +28,19 @@ public class PlayerMovementScript : VehicleScript {
             GetComponent<Animator>().SetBool("Running", false); // update Running value to reflect input
         }
         return Vector3.zero;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            GetComponent<HealthScript>().TakeDamage(collision.GetComponent<EnemyScript>().Damage);
+            Knockback(transform.position - collision.transform.position, knockbackMag);
+        }
+    }
+
+    private void Knockback(Vector3 direct, float mag)
+    {
+        knock = direct.normalized * mag;
     }
 }

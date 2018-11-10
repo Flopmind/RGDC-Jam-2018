@@ -9,9 +9,9 @@ public abstract class VehicleScript : MonoBehaviour {
     [SerializeField]
     protected float moveMag;
     [SerializeField]
-    protected float speedPercent;
+    protected float speedMag;
     [SerializeField]
-    protected float slowPercent;
+    protected float slowMag;
     [SerializeField]
     protected float steerMag;
     [SerializeField]
@@ -20,6 +20,7 @@ public abstract class VehicleScript : MonoBehaviour {
     protected float evadeMag;
     
     protected Vector3 velocity = Vector3.zero;
+    protected Vector3 knock = Vector3.zero;
     protected List<PotionEffect> activeEffects = new List<PotionEffect>();
     protected List<GameObject> potions;
 
@@ -89,7 +90,7 @@ public abstract class VehicleScript : MonoBehaviour {
     // Calculates and returns the netForce, which should be set to zero at the beginning, based on the other methods in the vehicle class and the needs of the specific vehicle.
     protected abstract Vector3 CalculateForces();
 
-    protected void ApplyForces()
+    protected virtual void ApplyForces()
     {
         //Vector3 netForce = CalculateForces();
 
@@ -105,16 +106,26 @@ public abstract class VehicleScript : MonoBehaviour {
         //}
 
         //transform.position = transform.position + (velocity * Time.deltaTime);
-        GetComponent<Rigidbody2D>().velocity = CalculateForces().normalized * moveMag;
+        if (knock == Vector3.zero)
+        {
+            GetComponent<Rigidbody2D>().velocity = CalculateForces().normalized * moveMag;
 
-        if (ContainsEffect("Speed") && !ContainsEffect("Slow"))
-        {
-            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * speedPercent;
+            if (ContainsEffect("Speed") && !ContainsEffect("Slow"))
+            {
+                print("A");
+                GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * speedMag;
+            }
+            else if (ContainsEffect("Slow"))
+            {
+                GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * slowMag;
+            }
         }
-        else if (ContainsEffect("Slow"))
+        else
         {
-            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * slowPercent;
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(knock.x, knock.y));
+            knock = Vector3.zero;
         }
+        
     }
 
     protected void EffectUpdates()
