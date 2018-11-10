@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PotionEffect : MonoBehaviour
+public class PotionEffect : MonoBehaviour
 {
 
     [SerializeField]
     protected float effectTimer;
-
+    [SerializeField]
     protected string effectName;
+
     protected bool done = false;
 
     public float Timer
@@ -27,7 +28,7 @@ public abstract class PotionEffect : MonoBehaviour
         get { return effectName; }
     }
 
-    private void Update()
+    public void EffectUpdate()
     {
         if (!done)
         {

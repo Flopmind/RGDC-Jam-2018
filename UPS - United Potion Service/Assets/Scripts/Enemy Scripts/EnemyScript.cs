@@ -28,7 +28,7 @@ public abstract class EnemyScript : VehicleScript {
     protected void EnemyUpdate()
     {
         TargetPlayer();
-        ApplyForces();
+        VehicleUpdate();
         foreach(PotionEffect effect in activeEffects)
         {
             if (effect.Done)

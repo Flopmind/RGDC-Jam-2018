@@ -6,6 +6,7 @@ public abstract class Potion : MonoBehaviour
 {
 	[SerializeField]
 	protected float timeUntilEffect = 1;
+    [SerializeField]
     protected PotionEffect myEffect = null;
 
 	protected IEnumerator WaitUntilEffect()
@@ -17,7 +18,7 @@ public abstract class Potion : MonoBehaviour
     protected virtual void PotionStart()
     {
         //print("If an error is after this, fix potion start");
-        if (GetComponent<PotionEffect>())
+        if (!myEffect && GetComponent<PotionEffect>())
         {
             myEffect = GetComponent<PotionEffect>();
         }

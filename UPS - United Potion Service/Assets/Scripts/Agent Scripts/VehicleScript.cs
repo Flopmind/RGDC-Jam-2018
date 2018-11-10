@@ -80,7 +80,7 @@ public abstract class VehicleScript : MonoBehaviour {
     // Calculates and returns the netForce, which should be set to zero at the beginning, based on the other methods in the vehicle class and the needs of the specific vehicle.
     protected abstract Vector3 CalculateForces();
 
-    protected virtual void ApplyForces()
+    protected void ApplyForces()
     {
         //Vector3 netForce = CalculateForces();
 
@@ -98,5 +98,19 @@ public abstract class VehicleScript : MonoBehaviour {
         //transform.position = transform.position + (velocity * Time.deltaTime);
 
         GetComponent<Rigidbody2D>().velocity = CalculateForces();
+    }
+
+    protected void EffectUpdates()
+    {
+        foreach (PotionEffect effect in activeEffects)
+        {
+            effect.EffectUpdate();
+        }
+    }
+
+    public virtual void VehicleUpdate()
+    {
+        EffectUpdates();
+        CalculateForces();
     }
 }

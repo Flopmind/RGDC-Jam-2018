@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class DrinkablePotion : Potion {
+public class DrinkablePotion : Potion {
 
     [SerializeField]
     public int uses = 1;
 
     protected GameObject player;
     protected bool consumed = false;
+
+    private void Start()
+    {
+        PotionStart();
+    }
 
     protected override void PotionStart()
     {
@@ -23,6 +28,14 @@ public abstract class DrinkablePotion : Potion {
             TriggerEffect();
             --uses;
             consumed = (uses <= 0);
+        }
+    }
+
+    protected override void TriggerEffect()
+    {
+        if (myEffect)
+        {
+            player.GetComponent<VehicleScript>().AddEffect(myEffect);
         }
     }
 }
