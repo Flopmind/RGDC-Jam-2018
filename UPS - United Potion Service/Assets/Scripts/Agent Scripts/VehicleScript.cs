@@ -5,6 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class VehicleScript : MonoBehaviour {
 
+
+    [SerializeField]
+    protected float moveMag;
+    [SerializeField]
+    protected float speedPercent;
+    [SerializeField]
+    protected float slowPercent;
     [SerializeField]
     protected float steerMag;
     [SerializeField]
@@ -96,8 +103,16 @@ public abstract class VehicleScript : MonoBehaviour {
         //}
 
         //transform.position = transform.position + (velocity * Time.deltaTime);
+        GetComponent<Rigidbody2D>().velocity = CalculateForces().normalized * moveMag;
 
-        GetComponent<Rigidbody2D>().velocity = CalculateForces();
+        if (ContainsEffect("Speed") && !ContainsEffect("Slow"))
+        {
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * speedPercent;
+        }
+        else if (ContainsEffect("Slow"))
+        {
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * slowPercent;
+        }
     }
 
     protected void EffectUpdates()
