@@ -22,6 +22,18 @@ public class PlayerInventory : MonoBehaviour {
 			return result;
 		}
 	}
+	int totalScore
+	{
+		get
+		{
+			int result = 0;
+			foreach(PotionType pt in invItems.Keys)
+			{
+				result += invItems[pt].GetComponent<Potion>().Score * invNumbers[pt];
+			}
+			return result;
+		}
+	}
 	void Start()
 	{
 		invNumbers = new Dictionary<PotionType, int>();
@@ -29,6 +41,8 @@ public class PlayerInventory : MonoBehaviour {
 		invNumbers.Add(PotionType.Explosion, 5);
 		invItems.Add(PotionType.Explosion, explosionPrefab);
 		GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+		GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
+
 	}
 
 	public GameObject RetrieveItem(PotionType pt)
@@ -37,6 +51,7 @@ public class PlayerInventory : MonoBehaviour {
 		{
 			--invNumbers[pt];
 			GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+			GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
 			return invItems[pt];
 		}
 		else
