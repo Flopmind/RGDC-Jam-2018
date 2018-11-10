@@ -15,6 +15,7 @@ public class PotionThrow : MonoBehaviour
 		{
 			Vector3 vecToMouse = (MousePos.MousePosition - transform.position).normalized;
 			GameObject potionInstance = Instantiate(potionPrefab, transform.position + vecToMouse, Quaternion.identity);
+			potionInstance.GetComponent<Potion>().ActivationLocation = MousePos.MousePosition;
 			potionInstance.transform.up = vecToMouse;
 			potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
 		}

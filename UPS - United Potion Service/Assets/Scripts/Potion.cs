@@ -6,17 +6,32 @@ public class Potion : MonoBehaviour
 {
 	[SerializeField]
 	float timeUntilEffect = 1;
+	Vector3 activationLocation;
+	public Vector3 ActivationLocation
+	{
+		get
+		{
+			return activationLocation;
+		}
+		set
+		{
+			activationLocation = value;
+		}
+	}
 	// Use this for initialization
 	void Start () 
 	{
-		StartCoroutine(WaitUntilEffect());
+		//StartCoroutine(WaitUntilEffect());
 
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if (Vector3.SqrMagnitude(transform.position - activationLocation) < .01)
+		{
+			TriggerEffect();
+		}
 	}
 
 	IEnumerator WaitUntilEffect()
@@ -27,6 +42,7 @@ public class Potion : MonoBehaviour
 
 	void TriggerEffect()
 	{
+		Instantiate(Resources.Load<GameObject>("Explosion"), activationLocation, Quaternion.identity);
 		Destroy(gameObject);
 	}
 }

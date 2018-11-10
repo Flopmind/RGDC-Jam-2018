@@ -12,6 +12,7 @@ public abstract class VehicleScript : MonoBehaviour {
     [SerializeField]
     protected float evadeMag;
     
+    [SerializeField]
     protected Vector3 velocity = Vector3.zero;
 
     public Vector3 Velocity
@@ -27,11 +28,21 @@ public abstract class VehicleScript : MonoBehaviour {
         return steerMag * (desiredVelocity - velocity).normalized;
     }
 
+    protected Vector3 Seek(GameObject gameObj)
+    {
+        return Seek(gameObj.transform.position);
+    }
+
     protected Vector3 Flee(Vector3 targetPosition)
     {
         Vector3 desiredVelocity = (transform.position - targetPosition).normalized;
 
         return steerMag * (desiredVelocity - velocity).normalized;
+    }
+
+    protected Vector3 Flee(GameObject gameObj)
+    {
+        return Flee(gameObj.transform.position);
     }
 
     protected Vector3 Pursue(VehicleScript targetVehicle)
@@ -47,7 +58,7 @@ public abstract class VehicleScript : MonoBehaviour {
     // Calculates and returns the netForce, which should be set to zero at the beginning, based on the other methods in the vehicle class and the needs of the specific vehicle.
     protected abstract Vector3 CalculateForces();
 
-    protected void ApplyForces()
+    protected virtual void ApplyForces()
     {
         //Vector3 netForce = CalculateForces();
 

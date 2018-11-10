@@ -7,29 +7,39 @@ public abstract class EnemyScript : VehicleScript {
 
     [SerializeField]
     protected float aggroRange;
+    [SerializeField]
+    protected int attackDamage;
 
     protected GameObject player;
     protected GameObject target = null;
 
-	// Use this for initialization
-	void Start ()
+    public int Damage
+    {
+        get { return attackDamage; }
+    }
+    
+	protected void Initialize()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
             throw new System.ArgumentNullException("Player not found in EnemyScript");
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 
     protected void TargetPlayer()
     {
+        if (player)
+        {
+            print((transform.position - player.transform.position).magnitude + ", " + aggroRange);
+        }
         if (player && (transform.position - player.transform.position).magnitude <= aggroRange)
         {
             target = player;
         }
+    }
+
+    protected override void ApplyForces()
+    {
+        TargetPlayer();
+        base.ApplyForces();
     }
 }
