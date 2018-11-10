@@ -29,12 +29,25 @@ public class PlayerMovementScript : VehicleScript {
         }
         return Vector3.zero;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+    protected override void ApplyForces()
     {
-        if (collision.CompareTag("Enemy"))
+        if (knock == Vector3.zero)
         {
-            GetComponent<HealthScript>().TakeDamage(collision.GetComponent<EnemyScript>().Damage);
+            base.ApplyForces();
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(knock.x, knock.y));
+            knock = Vector3.zero;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.otherCollider.CompareTag("Enemy"))
+        {
+            GetComponent<HealthScript>().TakeDamage(collision.otherCollider.GetComponent<EnemyScript>().Damage);
             Knockback(transform.position - collision.transform.position, knockbackMag);
         }
     }
