@@ -29,6 +29,8 @@ public class PlayerInventory : MonoBehaviour {
 		invNumbers.Add(PotionType.Explosion, 5);
 		invItems.Add(PotionType.Explosion, explosionPrefab);
 		GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+		GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + numPotions * 5;
+
 	}
 
 	public GameObject RetrieveItem(PotionType pt)
@@ -37,6 +39,7 @@ public class PlayerInventory : MonoBehaviour {
 		{
 			--invNumbers[pt];
 			GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+			GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + numPotions * 5;
 			return invItems[pt];
 		}
 		else
