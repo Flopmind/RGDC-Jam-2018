@@ -43,7 +43,13 @@ public abstract class ThrownPotion : Potion
     protected virtual void PotionUpdate()
     {
         distanceTravelled = (transform.position - myOrigin).magnitude;
-        if (locationSet && ((Vector3.SqrMagnitude(transform.position - activationLocation) < .01) || /*(transform.position - activationLocation).magnitude >= distance ||*/ distanceTravelled >= maxDist))
+        if (locationSet && 
+            //Is close to desired location
+            ((Vector3.SqrMagnitude(transform.position - activationLocation) < .01)
+            //
+            || (transform.position - activationLocation).magnitude >= distance
+            //Has gone too far
+            || distanceTravelled >= maxDist))
         {
             TriggerEffect();
         }
