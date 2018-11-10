@@ -15,7 +15,8 @@ public class HealthScript : MonoBehaviour {
         {
             if (value < 0)
             {
-                currentHealth = 0;
+                // currentHealth = 0;
+                Destroy(gameObject);
             }
             else if (value > maxHealth)
             {

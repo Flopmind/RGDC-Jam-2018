@@ -24,8 +24,9 @@ public class Explosion : MonoBehaviour
 	{
         if (other.CompareTag("Enemy"))
         {
-            effect.ApplyEffect(other.GetComponent<VehicleScript>());
-        }
+            //effect.ApplyEffect(other.GetComponent<VehicleScript>());
+			other.GetComponent<HealthScript>().TakeDamage(3);
+		}
 	}
 
 	IEnumerator EndExplosion()
