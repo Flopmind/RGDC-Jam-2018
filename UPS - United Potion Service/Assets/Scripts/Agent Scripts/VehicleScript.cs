@@ -23,6 +23,7 @@ public abstract class VehicleScript : MonoBehaviour {
     protected Vector3 knock = Vector3.zero;
     protected List<PotionEffect> activeEffects = new List<PotionEffect>();
     protected List<GameObject> potions;
+    protected List<PotionEffect> doneEffects;
 
     public Vector3 Velocity
     {
@@ -115,9 +116,19 @@ public abstract class VehicleScript : MonoBehaviour {
 
     protected void EffectUpdates()
     {
+        doneEffects = new List<PotionEffect>();
         foreach (PotionEffect effect in activeEffects)
         {
             effect.EffectUpdate();
+            if (effect.Done)
+            {
+                doneEffects.Add(effect);
+            }
+        }
+
+        for (int i = 0; i < doneEffects.Count; i++)
+        {
+            activeEffects.Remove(doneEffects[i]);
         }
     }
 
