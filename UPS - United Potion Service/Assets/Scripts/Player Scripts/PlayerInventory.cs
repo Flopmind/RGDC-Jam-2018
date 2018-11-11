@@ -64,8 +64,11 @@ public class PlayerInventory : MonoBehaviour {
 		invItems.Add(PotionType.Health, healthPrefab);
 		invItems.Add(PotionType.Slow, slowPrefab);
 		invItems.Add(PotionType.Speed, speedPrefab);
-		GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
-		GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
+        if (onUI)
+        {
+            GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+            GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
+        }
 
 	}
 

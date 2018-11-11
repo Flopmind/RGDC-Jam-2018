@@ -14,6 +14,8 @@ public class CameraScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (!player) return;
+        
         Vector3 playerPos = player.transform.position;
         if (Mathf.Abs(transform.position.y-player.transform.position.y)>threshold)
         {
