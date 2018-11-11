@@ -130,7 +130,7 @@ MonoBehaviour:
   - {fileID: 1107480820136680, guid: f8165b30c54f7534585ed9ed260e11c2, type: 2}
   - {fileID: 1297796548640978, guid: 69d0d699fd056f649b81fc2742374c3a, type: 2}
   - {fileID: 1098297430429816, guid: 1da86cc7e74b1af4c8c360b44b9ea8d9, type: 2}
-  potionsCounts: 1e000000030000000200000002000000
+  potionsCounts: 1e000000050000000200000002000000
 --- !u!114 &114756016622068076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7699daa847aa6bd4a9929809576f8b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 50
   currentHealth: 0
 --- !u!114 &114902762760678262
 MonoBehaviour:

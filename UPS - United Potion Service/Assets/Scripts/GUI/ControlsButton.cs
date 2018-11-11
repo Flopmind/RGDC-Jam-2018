@@ -10,7 +10,7 @@ public class ControlsButton : MonoBehaviour
 	{
 		controlsText = GameObject.Find("ControlsText").GetComponent<Text>();
 	}
-	// Use this for initialization
+
 	public void ToggleControls()
 	{
 		controlsText.enabled = !controlsText.enabled;
