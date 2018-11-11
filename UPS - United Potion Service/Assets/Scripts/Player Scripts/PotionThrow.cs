@@ -5,8 +5,6 @@ using UnityEngine;
 public class PotionThrow : MonoBehaviour
 {
     [SerializeField]
-    private GameObject potionPrefab;
-    [SerializeField]
     private float potionThrowSpeed = 1;
     [SerializeField]
     private float throwInterval = 2;
@@ -14,6 +12,8 @@ public class PotionThrow : MonoBehaviour
     protected float maxThrowRange = 6;
     [SerializeField]
     private List<GameObject> myPotions;
+    [SerializeField]
+    private List<int> potionsCounts;
 
     private GameObject[] enemies;
     private int index;
@@ -32,23 +32,7 @@ public class PotionThrow : MonoBehaviour
         if (throwTimer <= 0)
         {
             GameObject potionToInstantiate = null;
-            // if (Input.GetMouseButtonDown(0))
-            // {
-            //     potionToInstantiate = inv.RetrieveItem(PlayerInventory.PotionType.Explosion);
-            //     if (potionToInstantiate != null)
-            //     {
-            //         Vector3 vecToMouse = (MousePos.MousePosition - transform.position);
-            //         float distanceTravel = vecToMouse.magnitude;
-            //         vecToMouse.Normalize();
-            //         GameObject potionInstance = Instantiate(potionPrefab, transform.position + vecToMouse, Quaternion.identity);
-            //         potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
-            //         potionInstance.GetComponent<ThrownPotion>().SetDistances(transform.position, maxThrowRange, distanceTravel);
-            //         potionInstance.transform.up = vecToMouse;
-            //         potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
-            //         throwTimer = throwInterval;
-            //     }
-            // }
-            if (/*Input.GetMouseButtonDown(1) && myPotions.Count > 0*/Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && myPotions.Count > 0)
             {
                 potionToInstantiate = inv.RetrieveItem((PlayerInventory.PotionType)index);
                 if (potionToInstantiate != null)
@@ -88,7 +72,7 @@ public class PotionThrow : MonoBehaviour
             ++index;
             print(index);
         }
-        if (index > 3)
+        if (index > myPotions.Count)
         {
             index = 0;
         }
@@ -96,5 +80,20 @@ public class PotionThrow : MonoBehaviour
         {
             index = myPotions.Count - 1;
         }
+    }
+
+    public int GetScore()
+    {
+        int score = 0;
+        for (int i = 0; i < myPotions.Count; i++)
+        {
+            score += myPotions[i].GetComponent<Potion>().Score * potionsCounts[i];
+        }
+        return score;
+    }
+    
+    public Sprite GetCurrentSprite()
+    {
+        return myPotions[index].GetComponent<SpriteRenderer>().sprite;
     }
 }
