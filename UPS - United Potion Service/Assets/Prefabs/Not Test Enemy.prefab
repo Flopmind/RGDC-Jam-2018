@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 58779008309375592}
   - component: {fileID: 114928358469922858}
   m_Layer: 0
-  m_Name: Test Enemy
+  m_Name: Not Test Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   evadeMag: 0
   aggroRange: 6
   attackDamage: 3
+  cost: 0
 --- !u!114 &114928358469922858
 MonoBehaviour:
   m_ObjectHideFlags: 1
