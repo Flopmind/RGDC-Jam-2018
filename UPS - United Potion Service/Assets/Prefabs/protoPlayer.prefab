@@ -28,7 +28,6 @@ GameObject:
   - component: {fileID: 114341038209313860}
   - component: {fileID: 58409877049585886}
   - component: {fileID: 114690099867757892}
-  - component: {fileID: 114308666717741508}
   m_Layer: 9
   m_Name: protoPlayer
   m_TagString: Player
@@ -102,20 +101,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114308666717741508
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250258218426502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96bc0bf988892cf449d28e0d8c27003a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onUI: 0
-  explosionPrefab: {fileID: 1524532432778774, guid: f72dd0b0bc4abef408d8c5ff4093a0c3,
-    type: 2}
 --- !u!114 &114341038209313860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,6 +145,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onUI: 0
   explosionPrefab: {fileID: 1524532432778774, guid: f72dd0b0bc4abef408d8c5ff4093a0c3,
+    type: 2}
+  slowPrefab: {fileID: 1107480820136680, guid: f8165b30c54f7534585ed9ed260e11c2, type: 2}
+  speedPrefab: {fileID: 1297796548640978, guid: 69d0d699fd056f649b81fc2742374c3a,
+    type: 2}
+  healthPrefab: {fileID: 1098297430429816, guid: 1da86cc7e74b1af4c8c360b44b9ea8d9,
     type: 2}
 --- !u!114 &114756016622068076
 MonoBehaviour:

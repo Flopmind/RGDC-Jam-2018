@@ -252,6 +252,10 @@ Prefab:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1372237072101512, guid: 92f60f3d5dab8b24e8d76c8ab19df192, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92f60f3d5dab8b24e8d76c8ab19df192, type: 2}
   m_IsPrefabAsset: 0
@@ -396,7 +400,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1929178600274628, guid: 9fd51a11913ec8144bb6ffcd2cdff4c9, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd51a11913ec8144bb6ffcd2cdff4c9, type: 2}
@@ -440,6 +444,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114690099867757892, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: slowPrefab
+      value: 
+      objectReference: {fileID: 1107480820136680, guid: f8165b30c54f7534585ed9ed260e11c2,
+        type: 2}
+    - target: {fileID: 114690099867757892, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: speedPrefab
+      value: 
+      objectReference: {fileID: 1297796548640978, guid: 69d0d699fd056f649b81fc2742374c3a,
+        type: 2}
+    - target: {fileID: 114690099867757892, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: healthPrefab
+      value: 
+      objectReference: {fileID: 1098297430429816, guid: 1da86cc7e74b1af4c8c360b44b9ea8d9,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
   m_IsPrefabAsset: 0

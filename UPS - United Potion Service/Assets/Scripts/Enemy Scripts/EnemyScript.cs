@@ -9,6 +9,8 @@ public abstract class EnemyScript : VehicleScript {
     protected float aggroRange;
     [SerializeField]
     protected int attackDamage;
+    [SerializeField]
+    protected int cost;
 
     protected GameObject player;
     protected GameObject target = null;
@@ -16,6 +18,11 @@ public abstract class EnemyScript : VehicleScript {
     public int Damage
     {
         get { return attackDamage; }
+    }
+
+    public int Cost
+    {
+        get { return cost; }
     }
     
 	protected void Initialize()
