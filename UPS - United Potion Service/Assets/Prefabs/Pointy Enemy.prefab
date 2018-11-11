@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372237072101512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5652132, y: 4.9123373, z: 0}
+  m_LocalPosition: {x: -5.6212735, y: 0.6919601, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,7 +121,8 @@ MonoBehaviour:
   cost: 4
   dashInterval: 4
   dashLength: 2
-  dashMag: 3
+  dashMag: 5
+  leashRange: 5
 --- !u!114 &114334355926173920
 MonoBehaviour:
   m_ObjectHideFlags: 1

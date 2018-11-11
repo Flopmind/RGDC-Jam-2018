@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1250258218426502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.5027184, y: -2.6291971, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -131,17 +131,6 @@ MonoBehaviour:
   - {fileID: 1297796548640978, guid: 69d0d699fd056f649b81fc2742374c3a, type: 2}
   - {fileID: 1098297430429816, guid: 1da86cc7e74b1af4c8c360b44b9ea8d9, type: 2}
   potionsCounts: 05000000030000000200000002000000
-  numExplosions: 5
-  numSlows: 3
-  numSpeeds: 2
-  numHealths: 2
-  explosionPrefab: {fileID: 1524532432778774, guid: f72dd0b0bc4abef408d8c5ff4093a0c3,
-    type: 2}
-  slowPrefab: {fileID: 1107480820136680, guid: f8165b30c54f7534585ed9ed260e11c2, type: 2}
-  speedPrefab: {fileID: 1297796548640978, guid: 69d0d699fd056f649b81fc2742374c3a,
-    type: 2}
-  healthPrefab: {fileID: 1098297430429816, guid: 1da86cc7e74b1af4c8c360b44b9ea8d9,
-    type: 2}
 --- !u!114 &114756016622068076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,7 +161,8 @@ MonoBehaviour:
   steerMag: 0
   pursuitMag: 0
   evadeMag: 0
-  knockbackMag: 3000
+  knockCount: 0.2
+  knockbackMag: 15
 --- !u!212 &212925627957996376
 SpriteRenderer:
   m_ObjectHideFlags: 1

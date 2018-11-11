@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 public class StartButton : MonoBehaviour 
 {
 
-	// Use this for initialization
+    public string destinationScene;
+
 	public void StartGame()
 	{
-		SceneManager.LoadSceneAsync("Tom Nonsense", LoadSceneMode.Single);
+		SceneManager.LoadSceneAsync(destinationScene, LoadSceneMode.Single);
 	}
 }

@@ -10,6 +10,8 @@ public class DashEnemy : EnemyScript
     protected float dashLength;
     [SerializeField]
     protected float dashMag;
+    [SerializeField]
+    protected float leashRange;
 
     protected bool dashReady;
     protected float dashTimer;
@@ -27,7 +29,6 @@ public class DashEnemy : EnemyScript
     private void Update()
     {
         EnemyUpdate();
-
     }
 
     protected override Vector3 CalculateForces()
@@ -35,6 +36,10 @@ public class DashEnemy : EnemyScript
         Vector3 netForce = Vector3.zero;
         if (target)
         {
+            if ((target.transform.position - transform.position).magnitude >= leashRange)
+            {
+                dashLengthTimer = 0;
+            }
             dashLengthTimer -= Time.deltaTime;
             if (dashLengthTimer <= 0)
             {
@@ -86,9 +91,10 @@ public class DashEnemy : EnemyScript
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        if (dashLengthTimer > 0)
+        base.OnCollisionEnter2D(collision);
+        if (!collision.collider.CompareTag("Enemy") && dashLengthTimer > 0)
         {
             dashLengthTimer = 0;
         }

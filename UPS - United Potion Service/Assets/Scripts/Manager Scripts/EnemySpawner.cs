@@ -62,7 +62,7 @@ public class EnemySpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if (initialized && !spawned && budget != default(int) && (transform.position - player.transform.position).magnitude <= playerInRange)
+		if (initialized && !spawned && budget != default(int) && player && (transform.position - player.transform.position).magnitude <= playerInRange)
         {
             spawned = true;
             int bigCount = 0;
@@ -77,7 +77,6 @@ public class EnemySpawner : MonoBehaviour {
                     index = Random.Range(0, enemies.Length);
                 }
                 while (enemies[index].GetComponent<EnemyScript>().Cost > budget && count < 20);
-                print("count - " + count);
                 int transformIndex = Random.Range(0, spawnLocations.Count);
                 Vector3 nextTransform = parent.transform.position;
                 nextTransform += spawnLocations[transformIndex];
@@ -85,7 +84,6 @@ public class EnemySpawner : MonoBehaviour {
                 GameObject instance = Instantiate(enemies[index], nextTransform, Quaternion.identity);
                 budget -= instance.GetComponent<EnemyScript>().Cost;
             }
-            print("bigCount - " + bigCount);
         }
 	}
 }

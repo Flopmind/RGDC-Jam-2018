@@ -18,7 +18,6 @@ public class HealthScript : MonoBehaviour {
         {
             if (value < 0)
             {
-                // currentHealth = 0;
                 Destroy(gameObject);
             }
             else if (value > maxHealth)
@@ -35,15 +34,15 @@ public class HealthScript : MonoBehaviour {
     private void Start()
     {
         Health = maxHealth;
-        //displayHP = GameObject.Find("CurrentHealth").GetComponent<UnityEngine.UI.Image>();
+        displayHP = GameObject.Find("CurrentHealth").GetComponent<UnityEngine.UI.Image>();
+        if (gameObject.name == "protoPlayer")
+        {
+            print(displayHP);
+        }
     }
 
     private void Update()
     {
-        if (Health <= 0)
-        {
-            Destroy(gameObject);
-        }
         if (displayHP)
         {
             displayHP.fillAmount = Mathf.Clamp((float)currentHealth / (float)maxHealth, 0, 1);

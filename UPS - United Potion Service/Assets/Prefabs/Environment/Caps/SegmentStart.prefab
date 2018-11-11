@@ -691,12 +691,14 @@ MonoBehaviour:
   steerMag: 3
   pursuitMag: 0
   evadeMag: 0
+  knockCount: 0
   aggroRange: 6
   attackDamage: 10
   cost: 4
   dashInterval: 4
   dashLength: 2
-  dashMag: 3
+  dashMag: 5
+  leashRange: 5
 --- !u!114 &114040990508191708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -714,6 +716,7 @@ MonoBehaviour:
   steerMag: 3
   pursuitMag: 0
   evadeMag: 0
+  knockCount: 0
   aggroRange: 6
   attackDamage: 3
   cost: 2
@@ -760,6 +763,7 @@ MonoBehaviour:
   steerMag: 3
   pursuitMag: 0
   evadeMag: 0
+  knockCount: 0
   aggroRange: 6
   attackDamage: 3
   cost: 2
@@ -839,12 +843,14 @@ MonoBehaviour:
   steerMag: 3
   pursuitMag: 0
   evadeMag: 0
+  knockCount: 0
   aggroRange: 6
   attackDamage: 10
   cost: 4
   dashInterval: 4
   dashLength: 2
-  dashMag: 3
+  dashMag: 5
+  leashRange: 5
 --- !u!114 &114962131342578862
 MonoBehaviour:
   m_ObjectHideFlags: 1

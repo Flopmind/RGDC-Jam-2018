@@ -18,9 +18,12 @@ public abstract class VehicleScript : MonoBehaviour {
     protected float pursuitMag;
     [SerializeField]
     protected float evadeMag;
-    
+    [SerializeField]
+    protected float knockCount;
+
     protected Vector3 velocity = Vector3.zero;
     protected Vector3 knock = Vector3.zero;
+    protected float knockTimer = 0;
     protected List<PotionEffect> activeEffects = new List<PotionEffect>();
     protected List<GameObject> potions;
     protected List<PotionEffect> doneEffects;
@@ -93,25 +96,22 @@ public abstract class VehicleScript : MonoBehaviour {
 
     protected virtual void ApplyForces()
     {
-        if (knock == Vector3.zero)
-        {
-            GetComponent<Rigidbody2D>().velocity = CalculateForces().normalized * moveMag;
+        Vector3 velo = Vector3.zero;
+        velo = CalculateForces().normalized * moveMag;
 
-            if (ContainsEffect("Speed") && !ContainsEffect("Slow"))
-            {
-                GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * speedMag;
-            }
-            else if (ContainsEffect("Slow"))
-            {
-                GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity * slowMag;
-            }
-        }
-        else
+        if (ContainsEffect("Speed") && !ContainsEffect("Slow"))
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(knock.x, knock.y));
-            knock = Vector3.zero;
+            velo = velo * speedMag;
         }
-        
+        else if (ContainsEffect("Slow"))
+        {
+            velo = velo * slowMag;
+        }
+        if (knock != Vector3.zero)
+        {
+            velo = knock;
+        }
+        GetComponent<Rigidbody2D>().velocity = velo;
     }
 
     protected void EffectUpdates()
