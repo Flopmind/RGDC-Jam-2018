@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class PlayerInventory : MonoBehaviour {
 	 public enum PotionType{Explosion, Slow, Speed, Health};
 	// Use this for initialization
+
+    public bool onUI = true;
 	Dictionary<PotionType, int> invNumbers;
 	Dictionary<PotionType, GameObject> invItems;
 	[SerializeField]
@@ -58,20 +60,21 @@ public class PlayerInventory : MonoBehaviour {
 
 	public GameObject RetrieveItem(PotionType pt)
 	{
-		if (GameObject.Find("PotionsText") == null || GameObject.Find("ScoreText") == null)
-		{
-			return null;
-		}
-		if (invNumbers[pt] > 0)
-		{
-			--invNumbers[pt];
-			GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
-			GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
-			return invItems[pt];
-		}
-		else
-		{
-			return null;
-		}
-	}
+        if (onUI)
+        {
+            if (GameObject.Find("PotionsText") == null || GameObject.Find("ScoreText") == null)
+            {
+                return null;
+            }
+            if (invNumbers[pt] > 0)
+            {
+                --invNumbers[pt];
+                GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+                GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
+                return invItems[pt];
+            }
+            return null;
+        }
+        return invItems[pt];
+    }
 }
