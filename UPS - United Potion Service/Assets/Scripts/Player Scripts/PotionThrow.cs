@@ -108,7 +108,7 @@ public class PotionThrow : MonoBehaviour
 
     private void UpdateUI()
     {
-        GameObject.Find("ScoreText").GetComponent<UnityEngine.UI.Text>().text = "" + potionsCounts[index]; // show stock of current potion
+        GameObject.Find("PotionsText").GetComponent<UnityEngine.UI.Text>().text = "" + potionsCounts[index]; // show stock of current potion
         GameObject.Find("PotionIMG").GetComponent<UnityEngine.UI.Image>().sprite = GetCurrentSprite();
     }
 
