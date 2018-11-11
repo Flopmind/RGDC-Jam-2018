@@ -79,10 +79,10 @@ public class EnemySpawner : MonoBehaviour {
                 while (enemies[index].GetComponent<EnemyScript>().Cost > budget && count < 20);
                 print("count - " + count);
                 int transformIndex = Random.Range(0, spawnLocations.Count);
-                Transform nextTransform = parent.transform;
-                nextTransform.position = parent.transform.position += spawnLocations[transformIndex];
+                Vector3 nextTransform = parent.transform.position;
+                nextTransform += spawnLocations[transformIndex];
                 spawnLocations.RemoveAt(transformIndex);
-                GameObject instance = Instantiate(enemies[index], nextTransform);
+                GameObject instance = Instantiate(enemies[index], nextTransform, Quaternion.identity);
                 budget -= instance.GetComponent<EnemyScript>().Cost;
             }
             print("bigCount - " + bigCount);

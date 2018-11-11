@@ -81,8 +81,8 @@ public class PotionThrow : MonoBehaviour
         {
             throw new System.ArgumentNullException("Bad matchup of potions and potion counts");
         }
-        GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
-        GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
+        //GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+        //GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
     }
 
     // checks for input, instantiates potion and makes potion move
@@ -113,8 +113,8 @@ public class PotionThrow : MonoBehaviour
                 throwTimer = throwInterval;
                 //--potionsCounts[index];
                 --invNumbers[(PotionType)index];
-                GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
-                GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
+                //GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+                //GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
             }
         }
         else
@@ -144,7 +144,7 @@ public class PotionThrow : MonoBehaviour
 
     private void UpdateUI()
     {
-        GameObject.Find("ScoreText").GetComponent<UnityEngine.UI.Text>().text = "" + potionsCounts[index]; // show stock of current potion
+        GameObject.Find("PotionsText").GetComponent<UnityEngine.UI.Text>().text = "" + potionsCounts[index]; // show stock of current potion
         GameObject.Find("PotionIMG").GetComponent<UnityEngine.UI.Image>().sprite = GetCurrentSprite();
     }
 
