@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour {
         {
             if (lowestCost > enemies[i].GetComponent<EnemyScript>().Cost)
             {
-
+                lowestCost = enemies[i].GetComponent<EnemyScript>().Cost;
             }
         }
 	}
@@ -40,10 +40,9 @@ public class EnemySpawner : MonoBehaviour {
 		if (!spawned && (transform.position - player.transform.position).magnitude <= playerInRange)
         {
             spawned = true;
-            while (budget >= 0)
+            while (budget >= lowestCost)
             {
                 int index = Random.Range(0, enemies.Length);
-
             }
         }
 	}
