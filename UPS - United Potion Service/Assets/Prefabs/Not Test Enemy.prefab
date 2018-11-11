@@ -111,7 +111,7 @@ MonoBehaviour:
   evadeMag: 0
   aggroRange: 6
   attackDamage: 3
-  cost: 0
+  cost: 2
 --- !u!114 &114928358469922858
 MonoBehaviour:
   m_ObjectHideFlags: 1

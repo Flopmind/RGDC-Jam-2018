@@ -3,20 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
-
+    
     [SerializeField]
+    private GameObject parent;
+    [SerializeField]
+    private List<Vector3> spawnLocations;
+
     private float playerInRange;
-    [SerializeField]
     private GameObject[] enemies;
-    [SerializeField]
     private int budget;
-
     private bool spawned;
     private GameObject player;
     private int lowestCost;
 
-    // Use this for initialization
-    void Start ()
+    public float PlayerInRange
+    {
+        set { playerInRange = value; }
+    }
+
+    public GameObject[] Enemies
+    {
+        set { enemies = value; }
+    }
+
+    public int Budget
+    {
+        set { budget = value; }
+    }
+    
+    public void Initialize()
     {
         spawned = false;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -37,12 +52,23 @@ public class EnemySpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if (!spawned && (transform.position - player.transform.position).magnitude <= playerInRange)
+		if (!spawned && budget != default(int) && (transform.position - player.transform.position).magnitude <= playerInRange)
         {
             spawned = true;
-            while (budget >= lowestCost)
+            while (budget >= lowestCost && spawnLocations.Count > 0)
             {
-                int index = Random.Range(0, enemies.Length);
+                int index;
+                do
+                {
+                    index = Random.Range(0, enemies.Length);
+                }
+                while (enemies[index].GetComponent<EnemyScript>().Cost > budget);
+                int transformIndex = Random.Range(0, spawnLocations.Count);
+                Transform nextTransform = parent.transform;
+                nextTransform.position = parent.transform.position += spawnLocations[transformIndex];
+                spawnLocations.RemoveAt(transformIndex);
+                GameObject instance = Instantiate(enemies[index], nextTransform);
+                budget -= instance.GetComponent<EnemyScript>().Cost;
             }
         }
 	}

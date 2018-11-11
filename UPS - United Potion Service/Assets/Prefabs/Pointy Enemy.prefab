@@ -99,6 +99,7 @@ MonoBehaviour:
   evadeMag: 0
   aggroRange: 6
   attackDamage: 10
+  cost: 4
   dashInterval: 4
   dashLength: 2
   dashMag: 3

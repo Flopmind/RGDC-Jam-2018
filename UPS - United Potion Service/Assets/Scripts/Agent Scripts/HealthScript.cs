@@ -6,6 +6,7 @@ public class HealthScript : MonoBehaviour {
 
     [SerializeField]
     private int maxHealth = 1;
+    [SerializeField]
     private int currentHealth;
 
     private UnityEngine.UI.Image displayHP;
@@ -34,7 +35,7 @@ public class HealthScript : MonoBehaviour {
     private void Start()
     {
         Health = maxHealth;
-        displayHP = GameObject.Find("CurrentHealth").GetComponent<UnityEngine.UI.Image>();
+        //displayHP = GameObject.Find("CurrentHealth").GetComponent<UnityEngine.UI.Image>();
     }
 
     private void Update()
