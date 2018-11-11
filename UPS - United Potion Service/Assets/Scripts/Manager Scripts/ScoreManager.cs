@@ -18,12 +18,12 @@ public class ScoreManager : MonoBehaviour {
         if (ScoreTracker.victory)
         {
             end += "Congratulations! You won!";
+            end += "\nYour final score is " + ScoreTracker.score;
         }
         else
         {
             end += "Sorry! You lost!";
         }
-        end += "\nYour final score is " + ScoreTracker.score;
         scoreText.text = end;
 	}
 }

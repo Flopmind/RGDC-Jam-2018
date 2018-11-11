@@ -24,6 +24,7 @@ public class HealthScript : MonoBehaviour {
                 {
                     print("bye");
                     ScoreTracker.victory = false;
+                    //ScoreTracker.score = gameObject.GetComponent<PotionThrow>().GetScore();
                     SceneManager.LoadScene("Gameover Scene");
                 }
                 Destroy(gameObject);
