@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthScript : MonoBehaviour {
 
@@ -16,8 +17,15 @@ public class HealthScript : MonoBehaviour {
         get { return currentHealth; }
         set
         {
-            if (value < 0)
+            if (value <= 0)
             {
+                print("hi");
+                if (gameObject.CompareTag("Player"))
+                {
+                    print("bye");
+                    ScoreTracker.victory = false;
+                    SceneManager.LoadScene("Gameover Scene");
+                }
                 Destroy(gameObject);
             }
             else if (value > maxHealth)
