@@ -6,5 +6,6 @@ public static class ScoreTracker
 {
 
     public static int score;
+    public static bool victory;
 
 }

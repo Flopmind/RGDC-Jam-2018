@@ -11,6 +11,7 @@ public class Goal : MonoBehaviour
 		if (other.CompareTag("Player"))
 		{
             ScoreTracker.score = GameObject.FindGameObjectWithTag("Player").GetComponent<PotionThrow>().GetScore();
+            ScoreTracker.victory = true;
             SceneManager.LoadScene("Gameover Scene");
 		}
 	}
