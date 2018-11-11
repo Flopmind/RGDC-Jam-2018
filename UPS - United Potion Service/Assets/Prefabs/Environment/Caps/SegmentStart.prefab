@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 114402297714613212}
   m_Layer: 0
   m_Name: Pointy Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 114998081946100050}
   m_Layer: 0
   m_Name: Pointy Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  currentHealth: 0
 --- !u!114 &114189730545243400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -687,6 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  currentHealth: 0
 --- !u!114 &114584088207189908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -741,6 +743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  currentHealth: 0
 --- !u!114 &114799976989612274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -753,6 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  currentHealth: 0
 --- !u!114 &114998081946100050
 MonoBehaviour:
   m_ObjectHideFlags: 1

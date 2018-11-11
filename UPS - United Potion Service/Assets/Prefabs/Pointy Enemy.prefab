@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114029261807737486}
   m_Layer: 0
   m_Name: Pointy Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  currentHealth: 0
 --- !u!212 &212945146907723522
 SpriteRenderer:
   m_ObjectHideFlags: 1

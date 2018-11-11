@@ -15,7 +15,7 @@ public class SpawnerManager : MonoBehaviour {
 	void Start ()
     {
         spawners = GameObject.FindGameObjectsWithTag("Spawner");
-        print(spawners);
+        print(spawners.Length);
         foreach (GameObject spawner in spawners)
         {
             spawner.GetComponent<EnemySpawner>().PlayerInRange = playerInRange;
