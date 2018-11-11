@@ -55,7 +55,7 @@ MonoBehaviour:
   timeUntilEffect: 1
   score: 15
   uses: 1
-  timer: 5
+  timer: 3
   effectName: Speed
 --- !u!212 &212344017765167746
 SpriteRenderer:
