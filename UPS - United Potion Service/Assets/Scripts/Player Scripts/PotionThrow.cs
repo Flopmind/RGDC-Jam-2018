@@ -13,7 +13,7 @@ public class PotionThrow : MonoBehaviour
     [SerializeField]
     private List<GameObject> myPotions;
     [SerializeField]
-    private List<uint> potionsCounts;
+    private List<int> potionsCounts;
 
     private GameObject[] enemies;
     private int index;
@@ -33,7 +33,7 @@ public class PotionThrow : MonoBehaviour
     {
         if (throwTimer <= 0)
         {
-            if (Input.GetMouseButtonDown(0) && myPotions.Count > 0 && potionsCounts[index] != 0)
+            if (Input.GetMouseButtonDown(0) && myPotions.Count > 0 && potionsCounts[index] > 0)
             {
                 Vector3 vecToMouse = (MousePos.MousePosition - transform.position);
                 float distanceTravel = vecToMouse.magnitude;
