@@ -9,11 +9,16 @@ public class GenerateLevel : MonoBehaviour
     [SerializeField] private GameObject start;
     [SerializeField] private GameObject end;
     [SerializeField] private List<GameObject> prefabs;
-    [SerializeField] private float length = 5;
+    [SerializeField] private int length = 5;
     [SerializeField] private float levelSize = 20;
 
     [Header("Grid to insert prefabs")]
     [SerializeField] private Transform grid;
+
+    public int Length
+    {
+        get { return length; }
+    }
 
     // Use this for initialization
     void Start()

@@ -9,10 +9,14 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField]
     private List<Vector3> spawnLocations;
 
+    [SerializeField]
     private float playerInRange;
+    [SerializeField]
     private GameObject[] enemies;
+    [SerializeField]
     private int budget;
     private bool spawned;
+    private bool initialized;
     private GameObject player;
     private int lowestCost;
 
@@ -30,7 +34,12 @@ public class EnemySpawner : MonoBehaviour {
     {
         set { budget = value; }
     }
-    
+
+    private void Start()
+    {
+        initialized = false;
+    }
+
     public void Initialize()
     {
         spawned = false;
@@ -47,22 +56,28 @@ public class EnemySpawner : MonoBehaviour {
                 lowestCost = enemies[i].GetComponent<EnemyScript>().Cost;
             }
         }
+        initialized = true;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		if (!spawned && budget != default(int) && (transform.position - player.transform.position).magnitude <= playerInRange)
+		if (initialized && !spawned && budget != default(int) && (transform.position - player.transform.position).magnitude <= playerInRange)
         {
             spawned = true;
+            int bigCount = 0;
             while (budget >= lowestCost && spawnLocations.Count > 0)
             {
+                ++bigCount;
                 int index;
+                int count = 0;
                 do
                 {
+                    ++count;
                     index = Random.Range(0, enemies.Length);
                 }
-                while (enemies[index].GetComponent<EnemyScript>().Cost > budget);
+                while (enemies[index].GetComponent<EnemyScript>().Cost > budget && count < 20);
+                print("count - " + count);
                 int transformIndex = Random.Range(0, spawnLocations.Count);
                 Transform nextTransform = parent.transform;
                 nextTransform.position = parent.transform.position += spawnLocations[transformIndex];
@@ -70,6 +85,7 @@ public class EnemySpawner : MonoBehaviour {
                 GameObject instance = Instantiate(enemies[index], nextTransform);
                 budget -= instance.GetComponent<EnemyScript>().Cost;
             }
+            print("bigCount - " + bigCount);
         }
 	}
 }
