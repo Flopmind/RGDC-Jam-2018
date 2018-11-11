@@ -489,7 +489,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: UPS - United Potions Service
+  m_Text: 'You will play as a potion deliveryman for the United Potion Service (UPS)
+    who has to use some of his shipment to defend himself! You have many types of
+    potions at your disposal, but don''t use too many or you won''t have enough left
+    for your shipment.
+
+    WASD - Move
+
+    LMB - Use Potion
+
+    Q and E - Cycle Potions'
 --- !u!222 &1405519912
 CanvasRenderer:
   m_ObjectHideFlags: 0
