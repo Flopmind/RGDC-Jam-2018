@@ -96,4 +96,9 @@ public class PotionThrow : MonoBehaviour
     {
         return myPotions[index].GetComponent<SpriteRenderer>().sprite;
     }
+
+    public GameObject CurrentPotion
+    {
+        get { return myPotions[index]; }
+    }
 }
