@@ -50,7 +50,7 @@ public class HealthScript : MonoBehaviour {
 
     private void Update()
     {
-        if (displayHP)
+        if (gameObject.CompareTag("Player") && displayHP)
         {
             displayHP.fillAmount = Mathf.Clamp((float)currentHealth / (float)maxHealth, 0, 1);
         }
