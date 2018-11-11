@@ -375,6 +375,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: potionsCounts.Array.data[0]
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
   m_IsPrefabAsset: 0
