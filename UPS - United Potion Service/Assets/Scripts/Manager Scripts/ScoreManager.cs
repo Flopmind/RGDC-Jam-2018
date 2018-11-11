@@ -14,6 +14,16 @@ public class ScoreManager : MonoBehaviour {
 	
 	void Update ()
     {
-        scoreText.text = "Final Score: " + ScoreTracker.score;
+        string end = "";
+        if (ScoreTracker.victory)
+        {
+            end += "Congratulations! You won!";
+        }
+        else
+        {
+            end += "Sorry! You lost!";
+        }
+        end += "\nYour final score is " + ScoreTracker.score;
+        scoreText.text = end;
 	}
 }

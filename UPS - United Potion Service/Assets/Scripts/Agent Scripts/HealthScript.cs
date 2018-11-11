@@ -18,6 +18,10 @@ public class HealthScript : MonoBehaviour {
         {
             if (value < 0)
             {
+                if (gameObject.CompareTag("Player"))
+                {
+                    ScoreTracker.victory = false;
+                }
                 Destroy(gameObject);
             }
             else if (value > maxHealth)
