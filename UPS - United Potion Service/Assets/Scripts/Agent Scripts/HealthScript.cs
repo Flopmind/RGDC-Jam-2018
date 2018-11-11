@@ -8,6 +8,8 @@ public class HealthScript : MonoBehaviour {
     private int maxHealth = 1;
     private int currentHealth;
 
+    private UnityEngine.UI.Image displayHP;
+
     public int Health
     {
         get { return currentHealth; }
@@ -32,6 +34,7 @@ public class HealthScript : MonoBehaviour {
     private void Start()
     {
         Health = maxHealth;
+        displayHP = GameObject.Find("CurrentHealth").GetComponent<UnityEngine.UI.Image>();
     }
 
     private void Update()
@@ -39,6 +42,10 @@ public class HealthScript : MonoBehaviour {
         if (Health <= 0)
         {
             Destroy(gameObject);
+        }
+        if (displayHP)
+        {
+            displayHP.fillAmount = Mathf.Clamp((float)currentHealth / (float)maxHealth, 0, 1);
         }
     }
 
