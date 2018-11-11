@@ -14,7 +14,7 @@ public class DashEnemy : EnemyScript
     protected bool dashReady;
     protected float dashTimer;
     protected float dashLengthTimer;
-    protected Vector3 targetLoc;
+    protected Vector3 dashVector;
 
     private void Start()
     {
@@ -22,25 +22,12 @@ public class DashEnemy : EnemyScript
         dashReady = false;
         dashTimer = dashInterval;
         dashLengthTimer = 0;
-        targetLoc = Vector3.zero;
     }
 
     private void Update()
     {
         EnemyUpdate();
 
-        dashLengthTimer -= Time.deltaTime;
-        if (dashLengthTimer <= 0)
-        {
-            if (dashTimer <= 0)
-            {
-                dashReady = true;
-            }
-            else
-            {
-                dashTimer -= Time.deltaTime;
-            }
-        }
     }
 
     protected override Vector3 CalculateForces()
@@ -48,20 +35,30 @@ public class DashEnemy : EnemyScript
         Vector3 netForce = Vector3.zero;
         if (target)
         {
-            netForce += Seek(target).normalized * moveMag;
+            dashLengthTimer -= Time.deltaTime;
+            if (dashLengthTimer <= 0)
+            {
+                if (dashTimer <= 0)
+                {
+                    dashReady = true;
+                }
+                else
+                {
+                    dashTimer -= Time.deltaTime;
+                }
+            }
+
+            netForce = Seek(target).normalized * moveMag;
             if (dashReady)
             {
                 dashReady = false;
                 dashLengthTimer = dashLength;
+                dashVector = (target.transform.position - transform.position).normalized + (Seek(target).normalized * moveMag);
+                dashTimer = dashInterval;
             }
             if (dashLengthTimer > 0)
             {
-                netForce = Seek(target).normalized * dashMag;
-            }
-            else
-            {
-                print("not dashing");
-                dashTimer = dashInterval;
+                netForce = dashVector * dashMag;
             }
         }
         return netForce;
@@ -86,6 +83,14 @@ public class DashEnemy : EnemyScript
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(knock.x, knock.y));
             knock = Vector3.zero;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (dashLengthTimer > 0)
+        {
+            dashLengthTimer = 0;
         }
     }
 }
