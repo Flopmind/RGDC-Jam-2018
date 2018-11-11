@@ -85,4 +85,12 @@ public class DashEnemy : EnemyScript
             knock = Vector3.zero;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (dashLengthTimer > 0)
+        {
+            dashLengthTimer = 0;
+        }
+    }
 }
