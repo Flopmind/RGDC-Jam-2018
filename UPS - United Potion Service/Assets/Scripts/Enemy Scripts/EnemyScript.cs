@@ -15,6 +15,8 @@ public abstract class EnemyScript : VehicleScript {
     protected GameObject player;
     protected GameObject target = null;
 
+    protected Animator anim;
+
     public int Damage
     {
         get { return attackDamage; }
@@ -30,6 +32,7 @@ public abstract class EnemyScript : VehicleScript {
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
             throw new System.ArgumentNullException("Player not found in EnemyScript");
+        anim = GetComponent<Animator>();
 	}
 
     protected void EnemyUpdate()
@@ -37,6 +40,7 @@ public abstract class EnemyScript : VehicleScript {
         doneEffects = new List<PotionEffect>();
         TargetPlayer();
         VehicleUpdate();
+        Animate(GetComponent<Rigidbody2D>().velocity);
     }
 
     protected void TargetPlayer()
@@ -57,5 +61,20 @@ public abstract class EnemyScript : VehicleScript {
                 otherHealth.TakeDamage(attackDamage);
             }
         }
+    }
+
+    // Figures out variables to plug into the animator system
+    protected void Animate(Vector3 motion)
+    {
+        if (!anim) return; // exit if animator not established
+
+        // is the unit moving?
+        anim.SetBool("Moving", !(motion.x == 0.0f && motion.y == 0.0f));
+
+        // information about direction of movement
+        anim.SetFloat("Horizontal", motion.x);
+        anim.SetFloat("Vertical", motion.y);
+
+        anim.SetFloat("Ratio", (motion.y / motion.x));
     }
 }
