@@ -17,6 +17,17 @@ public class PlayerInventory : MonoBehaviour {
 	GameObject speedPrefab;
 	[SerializeField]
 	GameObject healthPrefab;
+	[SerializeField]
+	int numExplosions;
+		[SerializeField]
+	int numSlows;
+	[SerializeField]
+	int numSpeeds;
+	[SerializeField]
+	int numHealths;
+
+
+
 	int numPotions
 	{
 		get
@@ -45,10 +56,10 @@ public class PlayerInventory : MonoBehaviour {
 	{
 		invNumbers = new Dictionary<PotionType, int>();
 		invItems = new Dictionary<PotionType, GameObject>();
-		invNumbers.Add(PotionType.Health, 5);
-		invNumbers.Add(PotionType.Slow, 5);
-		invNumbers.Add(PotionType.Speed, 5);
-		invNumbers.Add(PotionType.Explosion, 5);
+		invNumbers.Add(PotionType.Health, numHealths);
+		invNumbers.Add(PotionType.Slow, numSlows);
+		invNumbers.Add(PotionType.Speed, numSpeeds);
+		invNumbers.Add(PotionType.Explosion, numExplosions);
 		invItems.Add(PotionType.Explosion, explosionPrefab);
 		invItems.Add(PotionType.Health, healthPrefab);
 		invItems.Add(PotionType.Slow, slowPrefab);
