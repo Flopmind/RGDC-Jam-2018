@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrinkablePotion : Potion {
+public class DrinkablePotion : Potion 
+{
 
     [SerializeField]
     protected int uses = 1;

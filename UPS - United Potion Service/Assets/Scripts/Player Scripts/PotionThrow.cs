@@ -32,43 +32,47 @@ public class PotionThrow : MonoBehaviour
         if (throwTimer <= 0)
         {
             GameObject potionToInstantiate = null;
-            if (Input.GetMouseButtonDown(0))
+            // if (Input.GetMouseButtonDown(0))
+            // {
+            //     potionToInstantiate = inv.RetrieveItem(PlayerInventory.PotionType.Explosion);
+            //     if (potionToInstantiate != null)
+            //     {
+            //         Vector3 vecToMouse = (MousePos.MousePosition - transform.position);
+            //         float distanceTravel = vecToMouse.magnitude;
+            //         vecToMouse.Normalize();
+            //         GameObject potionInstance = Instantiate(potionPrefab, transform.position + vecToMouse, Quaternion.identity);
+            //         potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
+            //         potionInstance.GetComponent<ThrownPotion>().SetDistances(transform.position, maxThrowRange, distanceTravel);
+            //         potionInstance.transform.up = vecToMouse;
+            //         potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
+            //         throwTimer = throwInterval;
+            //     }
+            // }
+            if (/*Input.GetMouseButtonDown(1) && myPotions.Count > 0*/Input.GetMouseButtonDown(0))
             {
-                potionToInstantiate = inv.RetrieveItem(PlayerInventory.PotionType.Explosion);
+                potionToInstantiate = inv.RetrieveItem((PlayerInventory.PotionType)index);
                 if (potionToInstantiate != null)
                 {
                     Vector3 vecToMouse = (MousePos.MousePosition - transform.position);
                     float distanceTravel = vecToMouse.magnitude;
                     vecToMouse.Normalize();
-                    GameObject potionInstance = Instantiate(potionPrefab, transform.position + vecToMouse, Quaternion.identity);
-                    potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
-                    potionInstance.GetComponent<ThrownPotion>().SetDistances(transform.position, maxThrowRange, distanceTravel);
-                    potionInstance.transform.up = vecToMouse;
-                    potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
+                    GameObject potionInstance = Instantiate(potionToInstantiate, transform.position + vecToMouse, Quaternion.identity);
+                    if (potionInstance.GetComponent<ThrownPotion>())
+                    {
+                        potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
+                        potionInstance.GetComponent<ThrownPotion>().SetDistances(transform.position, maxThrowRange, distanceTravel);
+                        potionInstance.transform.up = vecToMouse;
+                        potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
+                        throwTimer = throwInterval;
+                    }
+                    else if (potionInstance.GetComponent<DrinkablePotion>())
+                    {
+                        potionInstance.GetComponent<DrinkablePotion>().Initialize();
+                        potionInstance.GetComponent<DrinkablePotion>().Drink();
+                        Destroy(potionInstance);
+                    }
                     throwTimer = throwInterval;
                 }
-            }
-            else if (Input.GetMouseButtonDown(1) && myPotions.Count > 0)
-            {
-                Vector3 vecToMouse = (MousePos.MousePosition - transform.position);
-                float distanceTravel = vecToMouse.magnitude;
-                vecToMouse.Normalize();
-                GameObject potionInstance = Instantiate(myPotions[index], transform.position + vecToMouse, Quaternion.identity);
-                if (potionInstance.GetComponent<ThrownPotion>())
-                {
-                    potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
-                    potionInstance.GetComponent<ThrownPotion>().SetDistances(transform.position, maxThrowRange, distanceTravel);
-                    potionInstance.transform.up = vecToMouse;
-                    potionInstance.GetComponent<Rigidbody2D>().velocity = vecToMouse * potionThrowSpeed;
-                    throwTimer = throwInterval;
-                }
-                else if (potionInstance.GetComponent<DrinkablePotion>())
-                {
-                    potionInstance.GetComponent<DrinkablePotion>().Initialize();
-                    potionInstance.GetComponent<DrinkablePotion>().Drink();
-                    Destroy(potionInstance);
-                }
-                throwTimer = throwInterval;
             }
         }
         else
@@ -82,8 +86,9 @@ public class PotionThrow : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             ++index;
+            print(index);
         }
-        if (index >= myPotions.Count)
+        if (index > 3)
         {
             index = 0;
         }
