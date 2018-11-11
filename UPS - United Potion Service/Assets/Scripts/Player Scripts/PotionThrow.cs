@@ -74,8 +74,11 @@ public class PotionThrow : MonoBehaviour
                 }
                 throwTimer = throwInterval;
                 --potionsCounts[index];
-                GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
-                GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + GetScore();
+                if (GameObject.Find("PotionsText") && GameObject.Find("ScoreText"))
+                {
+                    GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+                    GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + GetScore();
+                }
             }
         }
         else
