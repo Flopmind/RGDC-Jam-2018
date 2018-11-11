@@ -40,7 +40,10 @@ public class PlayerMovementScript : VehicleScript {
             }
             forces += (new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0).normalized);
         }
-        GetComponent<Animator>().SetBool("Running", false); // update Running value to reflect input
+        else
+        {
+            GetComponent<Animator>().SetBool("Running", false); // update Running value to reflect input
+        }
         forces += knock;
         return forces;
     }
