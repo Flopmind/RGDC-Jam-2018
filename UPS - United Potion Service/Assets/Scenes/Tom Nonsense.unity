@@ -369,6 +369,50 @@ Prefab:
       propertyPath: onUI
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: numExplosions
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: numSlows
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: numSpeeds
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: numHealths
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 1524532432778774, guid: f72dd0b0bc4abef408d8c5ff4093a0c3,
+        type: 2}
+    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: slowPrefab
+      value: 
+      objectReference: {fileID: 1107480820136680, guid: f8165b30c54f7534585ed9ed260e11c2,
+        type: 2}
+    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: speedPrefab
+      value: 
+      objectReference: {fileID: 1297796548640978, guid: 69d0d699fd056f649b81fc2742374c3a,
+        type: 2}
+    - target: {fileID: 114537503616551246, guid: 6423460e6a659f44fb934a0764c4c3ed,
+        type: 2}
+      propertyPath: healthPrefab
+      value: 
+      objectReference: {fileID: 1098297430429816, guid: 1da86cc7e74b1af4c8c360b44b9ea8d9,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114308666717741508, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 6423460e6a659f44fb934a0764c4c3ed, type: 2}
@@ -6444,6 +6488,20 @@ Prefab:
     - target: {fileID: 224619129591888148, guid: 9a22ab5e31d67fe49a81e251200e2292,
         type: 2}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048946818932990, guid: 9a22ab5e31d67fe49a81e251200e2292, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224985426687477654, guid: 9a22ab5e31d67fe49a81e251200e2292,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114674234874218928, guid: 9a22ab5e31d67fe49a81e251200e2292,
+        type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

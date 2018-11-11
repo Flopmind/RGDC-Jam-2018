@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilEffect: 1
-  score: 0
+  score: 5
   damage: 1
   damageRadius: 3
 --- !u!212 &212746818595610104

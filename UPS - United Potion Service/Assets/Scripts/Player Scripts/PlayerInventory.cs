@@ -19,7 +19,7 @@ public class PlayerInventory : MonoBehaviour {
 	GameObject healthPrefab;
 	[SerializeField]
 	int numExplosions;
-		[SerializeField]
+	[SerializeField]
 	int numSlows;
 	[SerializeField]
 	int numSpeeds;

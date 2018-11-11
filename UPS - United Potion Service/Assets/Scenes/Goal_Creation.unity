@@ -493,6 +493,10 @@ MonoBehaviour:
     type: 2}
   healthPrefab: {fileID: 1098297430429816, guid: 1da86cc7e74b1af4c8c360b44b9ea8d9,
     type: 2}
+  numExplosions: 10
+  numSlows: 15
+  numSpeeds: 15
+  numHealths: 10
 --- !u!1 &566466846 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1929178600274628, guid: 9fd51a11913ec8144bb6ffcd2cdff4c9,

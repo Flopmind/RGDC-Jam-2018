@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PotionThrow : MonoBehaviour
 {
+  	 public enum PotionType{Explosion, Slow, Speed, Health};
     [SerializeField]
     private float potionThrowSpeed = 1;
+    Dictionary<PotionType, int> invNumbers;
+	Dictionary<PotionType, GameObject> invItems;
+
     [SerializeField]
     private float throwInterval = 2;
     [SerializeField]
@@ -18,14 +22,67 @@ public class PotionThrow : MonoBehaviour
     private GameObject[] enemies;
     private int index;
     private float throwTimer = 0;
+   	[SerializeField]
+	int numExplosions;
+	[SerializeField]
+	int numSlows;
+	[SerializeField]
+	int numSpeeds;
+	[SerializeField]
+	int numHealths;
+   	[SerializeField]
+	GameObject explosionPrefab;
+	[SerializeField]
+	GameObject slowPrefab;
+	[SerializeField]
+	GameObject speedPrefab;
+	[SerializeField]
+	GameObject healthPrefab;
+
+    int numPotions
+	{
+		get
+		{
+			int result = 0;
+			foreach (int i in invNumbers.Values)
+			{
+				result += i;
+			}
+			return result;
+		}
+	}
+	int totalScore
+	{
+		get
+		{
+			int result = 0;
+			foreach(PotionType pt in invItems.Keys)
+			{
+				result += invItems[pt].GetComponent<Potion>().Score * invNumbers[pt];
+			}
+			return result;
+		}
+	}
     private void Start()
     {
+   		invNumbers = new Dictionary<PotionType, int>();
+		invItems = new Dictionary<PotionType, GameObject>();
+        invNumbers.Add(PotionType.Health, numHealths);
+		invNumbers.Add(PotionType.Slow, numSlows);
+		invNumbers.Add(PotionType.Speed, numSpeeds);
+		invNumbers.Add(PotionType.Explosion, numExplosions);
+		invItems.Add(PotionType.Explosion, explosionPrefab);
+		invItems.Add(PotionType.Health, healthPrefab);
+		invItems.Add(PotionType.Slow, slowPrefab);
+		invItems.Add(PotionType.Speed, speedPrefab);
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         index = 0;
         if (myPotions.Count != potionsCounts.Count)
         {
             throw new System.ArgumentNullException("Bad matchup of potions and potion counts");
         }
+        GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+        GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
     }
 
     // checks for input, instantiates potion and makes potion move
@@ -33,12 +90,12 @@ public class PotionThrow : MonoBehaviour
     {
         if (throwTimer <= 0)
         {
-            if (Input.GetMouseButtonDown(0) && myPotions.Count > 0 && potionsCounts[index] > 0)
+            if (Input.GetMouseButtonDown(0) && myPotions.Count > 0 && invNumbers[(PotionType)index] > 0)
             {
                 Vector3 vecToMouse = (MousePos.MousePosition - transform.position);
                 float distanceTravel = vecToMouse.magnitude;
                 vecToMouse.Normalize();
-                GameObject potionInstance = Instantiate(myPotions[index], transform.position + vecToMouse, Quaternion.identity);
+                GameObject potionInstance = Instantiate(invItems[(PotionType)index], transform.position + vecToMouse, Quaternion.identity);
                 if (potionInstance.GetComponent<ThrownPotion>())
                 {
                     potionInstance.GetComponent<ThrownPotion>().ActivationLocation = MousePos.MousePosition;
@@ -54,7 +111,10 @@ public class PotionThrow : MonoBehaviour
                     Destroy(potionInstance);
                 }
                 throwTimer = throwInterval;
-                --potionsCounts[index];
+                //--potionsCounts[index];
+                --invNumbers[(PotionType)index];
+                GameObject.Find("PotionsText").GetComponent<Text>().text = "Potions:" + numPotions;
+                GameObject.Find("ScoreText").GetComponent<Text>().text = "Potions:" + totalScore;
             }
         }
         else
