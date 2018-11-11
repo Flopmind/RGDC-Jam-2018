@@ -130,7 +130,7 @@ public class PotionThrow : MonoBehaviour
             ++index;
             print(index);
         }
-        if (index > myPotions.Count)
+        if (index >= myPotions.Count)
         {
             index = 0;
         }
@@ -138,6 +138,14 @@ public class PotionThrow : MonoBehaviour
         {
             index = myPotions.Count - 1;
         }
+
+        UpdateUI(); // update the stock and potion UI elements
+    }
+
+    private void UpdateUI()
+    {
+        GameObject.Find("ScoreText").GetComponent<UnityEngine.UI.Text>().text = "" + potionsCounts[index]; // show stock of current potion
+        GameObject.Find("PotionIMG").GetComponent<UnityEngine.UI.Image>().sprite = GetCurrentSprite();
     }
 
     public int GetScore()
