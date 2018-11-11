@@ -30,17 +30,18 @@ public abstract class EnemyScript : VehicleScript {
 	protected void Initialize()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        if (!player)
-            throw new System.ArgumentNullException("Player not found in EnemyScript");
         anim = GetComponent<Animator>();
 	}
 
     protected void EnemyUpdate()
     {
-        doneEffects = new List<PotionEffect>();
-        TargetPlayer();
-        VehicleUpdate();
-        Animate(GetComponent<Rigidbody2D>().velocity);
+        if (player)
+        {
+            doneEffects = new List<PotionEffect>();
+            TargetPlayer();
+            VehicleUpdate();
+            Animate(GetComponent<Rigidbody2D>().velocity);
+        }
     }
 
     protected void TargetPlayer()
