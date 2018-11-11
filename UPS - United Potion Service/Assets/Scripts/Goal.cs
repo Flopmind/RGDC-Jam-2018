@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour 
 {
@@ -9,7 +10,8 @@ public class Goal : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			GameObject.Find("ScoreText").GetComponent<Text>().enabled = true;
+            ScoreTracker.score = GameObject.FindGameObjectWithTag("Player").GetComponent<PotionThrow>().GetScore();
+            SceneManager.LoadScene("Gameover Scene");
 		}
 	}
 }
