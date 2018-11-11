@@ -116,8 +116,9 @@ MonoBehaviour:
   steerMag: 3
   pursuitMag: 0
   evadeMag: 0
+  knockCount: 0
   aggroRange: 6
-  attackDamage: 10
+  attackDamage: 5
   cost: 4
   dashInterval: 4
   dashLength: 2
