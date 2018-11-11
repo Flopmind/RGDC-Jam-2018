@@ -19,6 +19,11 @@ public class PlayerMovementScript : VehicleScript {
         if (knockTimer <= 0)
         {
             knock = Vector3.zero;
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
         }
         VehicleUpdate();
     }
