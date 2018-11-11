@@ -17,9 +17,11 @@ public class DashEnemy : EnemyScript
     protected float dashTimer;
     protected float dashLengthTimer;
     protected Vector3 dashVector;
+    protected bool wasInRange;
 
     private void Start()
     {
+        wasInRange = false;
         Initialize();
         dashReady = false;
         dashTimer = dashInterval;
@@ -39,6 +41,7 @@ public class DashEnemy : EnemyScript
             if ((target.transform.position - transform.position).magnitude >= leashRange)
             {
                 dashLengthTimer = 0;
+                wasInRange = false;
             }
             dashLengthTimer -= Time.deltaTime;
             if (dashLengthTimer <= 0)
@@ -60,6 +63,10 @@ public class DashEnemy : EnemyScript
                 dashLengthTimer = dashLength;
                 dashVector = (target.transform.position - transform.position).normalized + (Seek(target).normalized * moveMag);
                 dashTimer = dashInterval;
+                if ((target.transform.position - transform.position).magnitude <= leashRange)
+                {
+                    wasInRange = true;
+                }
             }
             if (dashLengthTimer > 0)
             {
